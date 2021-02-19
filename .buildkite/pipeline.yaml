@@ -34,6 +34,7 @@ var_1: &api_test_docker_plugin
 steps:
   - label: ":yarn: Install packages"
     key: "install_packages"
+    if: build.branch != "master"
     <<: *api_test_docker_plugin
     commands:
       - yarn config set cache-folder /var/cache/spica/.cache
@@ -50,7 +51,7 @@ steps:
 
   - label: ":plaidml: + :bazel: Builds Docs"
     key: generate_docs
-    # if: build.branch != "master"
+    if: build.branch != "master"
     depends_on: "install_packages"
     <<: *api_test_docker_plugin
     commands:
