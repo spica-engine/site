@@ -107,3 +107,5 @@ steps:
   #     - cat /root/docker-password | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   #     - ./scripts/publish.sh latest
+
+  
