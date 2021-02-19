@@ -2,6 +2,8 @@
 
 Docs and Spica site is together.
 
+To start project, run: `yarn start`
+
 ## Docs
 
 We are generating our docs from markdown and typescript files through bazel rules. (Checkout `/tools/dgeni` directory.). The generated documents will be copied into assets directory under the hood.
@@ -10,12 +12,11 @@ You can generate document with running commands.
 
 <!-- For API Docs, run: `yarn ibazel build //docs/content/api` -->
 
-For Content Docs (guide, concept eg.), run: `yarn ibazel build //docs/content`
+For content docs (guide, concept eg.), run: `yarn ibazel build //docs/content`
 
-To Generate Them All run: `yarn docs`
  <!-- or `yarn docs:watch` -->
 
-After you serve the site, if you can change anything that triggers document generation, then your browser will refresh the spica site.
+<!-- After you serve the site, if you can change anything that triggers document generation, then your browser will refresh the spica site. -->
 
 ## Site
 
@@ -31,9 +32,9 @@ ng serve
 ```sh
 Example links;
 http://localhost:4200/assets/docs/content/doc-list.json # Generated Concept & Guide docs
-http://localhost:4200/assets/docs/api/doc-list.json # Generated API docs
 ```
 
+<!-- http://localhost:4200/assets/docs/api/doc-list.json # Generated API docs -->
 
 <!-- ### Publishing the site (next)
 
