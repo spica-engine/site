@@ -58,14 +58,14 @@ steps:
       - yarn --silent bazelisk build //docs/content
   
   - label: ":angular: Production Build"
-      key: build_prod
-      if: build.branch != "master"
-      depends_on: 
-        - install_packages
-        - generate_docs
-      <<: *api_test_docker_plugin
-      commands:
-        - yarn --cwd=docs/site ng build --prod --progress=false
+    key: build_prod
+    if: build.branch != "master"
+    depends_on: 
+      - install_packages
+      - generate_docs
+    <<: *api_test_docker_plugin
+    commands:
+      - yarn --cwd=docs/site ng build --prod --progress=false
 
   # - label: ":angular: + :chrome: Test Spica (Chrome)"
   #   key: test_spica
