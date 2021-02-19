@@ -1,0 +1,45 @@
+# A more useful default output mode for bazel query, which
+# prints "ts_library rule //foo:bar" instead of just "//foo:bar".
+query --output=label_kind
+
+
+# Turn off legacy external runfiles
+build --nolegacy_external_runfiles
+run --nolegacy_external_runfiles
+test --nolegacy_external_runfiles
+
+
+# Turn on --incompatible_strict_action_env which was on by default
+# in Bazel 0.21.0 but turned off again in 0.22.0. Follow
+# https://github.com/bazelbuild/bazel/issues/7026 for more details.
+# This flag is needed to so that the bazel cache is not invalidated
+# when running bazel via `yarn bazel`.
+build --incompatible_strict_action_env
+run --incompatible_strict_action_env
+test --incompatible_strict_action_env
+
+
+# These variables must be set in production deployments
+# In order to make things work as expected.
+# build:slavedelay --define=DATABASE_URI=mongodb://localhost:27017,localhost:27018,localhost:27019
+# build --define=DATABASE_URI=mongodb://localhost:27017
+# build --define=REPLICA_SET=infra
+# build --define=DATABASE_NAME=spica
+# build --define=PUBLIC_HOST=http://localhost:4300
+# build --define=PORT=4300
+# build --define=PERSISTENT_PATH=/tmp #Very persistent!
+# build --define=SECRET=2b10shOzfYpDCy.RMgsVlwdQeONKGGzaBTfTQAjmXQNpMp4aKlLXrfZ/C
+# build --define=DEFAULT_PASSWORD=spica
+# build --define=BUCKET_HOOKS=true
+# build --define=BUCKET_HISTORY=true
+# build --define=ACTIVITY_STREAM=true
+# build --define=EXPERIMENTAL_BUCKET_REALTIME=true
+# build --define=FUNCTION_GRPC_ADDRESS=0.0.0.0:5688
+# build --define=FUNCTION_POOL_SIZE=1
+
+# build:release --stamp --workspace_status_command="./scripts/current_version.sh"
+
+
+# Use phyton 2 instead of 3
+build --host_force_python=PY2
+run --host_force_python=PY2

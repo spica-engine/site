@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true,
+    "target": "ES2020",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "lib": ["es2018", "dom"]
+  },
+  "bazelOptions": {
+    "suppressTsconfigOverrideWarnings": true,
+    "devmodeTargetOverride": "es2018",
+  },
+  "exclude": ["dist", "bazel-*"]
+}
