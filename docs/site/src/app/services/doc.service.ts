@@ -10,13 +10,13 @@ export class DocService {
 
   constructor(private http: HttpClient) {}
 
-  getApiDocs() {
-    return this.http.get("/assets/docs/api/doc-list.json");
-  }
+  // getApiDocs() {
+  //   return this.http.get("/assets/docs/api/doc-list.json");
+  // }
 
-  getApiDocList(name: string) {
-    return this.http.get(`/assets/docs/api/${name}/doc-list.json`);
-  }
+  // getApiDocList(name: string) {
+  //   return this.http.get(`/assets/docs/api/${name}/doc-list.json`);
+  // }
 
   getApiDoc(name: string, docName: string) {
     return this.http.get(`/assets/docs/api/${name}/${docName}.html`, {responseType: "text"});
