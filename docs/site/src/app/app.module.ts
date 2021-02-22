@@ -26,7 +26,7 @@ import {AppComponent} from "./app.component";
 import {DocCardComponent} from "./components/doc-card/doc-card.component";
 import {FragmentLinkComponent} from "./components/fragment-link/fragment-link.component";
 import {TocComponent} from "./components/toc/toc.component";
-import {DocListComponent} from "./pages/doc-list/doc-list.component";
+// import {DocListComponent} from "./pages/doc-list/doc-list.component";
 import {DocComponent} from "./pages/doc/doc.component";
 import {DocsLayoutComponent} from "./pages/docs-layout/docs-layout.component";
 import {DocsComponent} from "./pages/docs/docs.component";
@@ -79,7 +79,7 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     HomeComponent,
     DocsComponent,
-    DocListComponent,
+    // DocListComponent,
     DocComponent,
     FragmentLinkComponent,
     DocsLayoutComponent,

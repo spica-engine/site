@@ -2,7 +2,8 @@
   "name": "site",
   "scripts": {
     "prestart": "bazelisk build //docs/content",
-    "start": "cd docs/site && ng serve"
+    "start": "cd docs/site && ng serve",
+    "prod": "bazelisk build //docs/content && cd docs/site && ng build --prod"
   },
   "devDependencies": {
     "@bazel/bazelisk": "^1.7.5",
@@ -12,13 +13,16 @@
     "@bazel/worker": "^2.2.2",
     "dgeni": "^0.4.12",
     "dgeni-packages": "^0.28.4",
-    "path-to-regexp": "^3.0.0",
     "mdast-util-toc": "^4.2.0",
+    "path-to-regexp": "^3.0.0",
+    "remark": "^10.0.1",
     "remark-frontmatter": "^1.3.2",
     "remark-highlight.js": "^5.1.1",
     "remark-html": "^9.0.1",
     "remark-slug": "^5.1.2",
-    "remark": "^10.0.1",
     "yaml": "^1.8.3"
+  },
+  "dependencies": {
+    "firebase-tools": "^9.4.0"
   }
 }
