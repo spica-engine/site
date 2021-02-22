@@ -19,27 +19,6 @@ run --incompatible_strict_action_env
 test --incompatible_strict_action_env
 
 
-# These variables must be set in production deployments
-# In order to make things work as expected.
-# build:slavedelay --define=DATABASE_URI=mongodb://localhost:27017,localhost:27018,localhost:27019
-# build --define=DATABASE_URI=mongodb://localhost:27017
-# build --define=REPLICA_SET=infra
-# build --define=DATABASE_NAME=spica
-# build --define=PUBLIC_HOST=http://localhost:4300
-# build --define=PORT=4300
-# build --define=PERSISTENT_PATH=/tmp #Very persistent!
-# build --define=SECRET=2b10shOzfYpDCy.RMgsVlwdQeONKGGzaBTfTQAjmXQNpMp4aKlLXrfZ/C
-# build --define=DEFAULT_PASSWORD=spica
-# build --define=BUCKET_HOOKS=true
-# build --define=BUCKET_HISTORY=true
-# build --define=ACTIVITY_STREAM=true
-# build --define=EXPERIMENTAL_BUCKET_REALTIME=true
-# build --define=FUNCTION_GRPC_ADDRESS=0.0.0.0:5688
-# build --define=FUNCTION_POOL_SIZE=1
-
-# build:release --stamp --workspace_status_command="./scripts/current_version.sh"
-
-
 # Use phyton 2 instead of 3
 build --host_force_python=PY2
 run --host_force_python=PY2
