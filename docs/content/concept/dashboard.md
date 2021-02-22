@@ -13,7 +13,7 @@ A basic custom dashboard consists of two properties; a name and components. You 
 URL property of the component dedicates where the chart data comes from. You can choose to get data directly from Spica by using an HTTP Triggered function, or you can enter a remote URL.
 
 Please note, each component accepts takes a different kind of JSON structure.
-### Example Line Data
+### Example Line Data Response
 
 ```json
 {
@@ -30,7 +30,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Radar Data
+### Example Radar Data Response
 
 ```json
 {
@@ -50,7 +50,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Bar Data
+### Example Bar Data Response
 
 ```json
 {
@@ -69,7 +69,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Pie Data
+### Example Pie Data Response
 
 ```json
 {
@@ -85,7 +85,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Doughnut Data
+### Example Doughnut Data Response
 
 ```json
 {
@@ -101,7 +101,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Bubble Data
+### Example Bubble Data Response
 
 ```json
 {
@@ -132,7 +132,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Scatter Data
+### Example Scatter Data Response
 
 ```json
 {
@@ -161,7 +161,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Polar Data
+### Example Polar Data Response
 
 ```json
 {
@@ -178,7 +178,7 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-### Example Table Data
+### Example Table Data Response
 
 ```json
 {
