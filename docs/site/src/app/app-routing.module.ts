@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {DocListComponent} from "./pages/doc-list/doc-list.component";
+// import {DocListComponent} from "./pages/doc-list/doc-list.component";
 import {DocComponent} from "./pages/doc/doc.component";
 import {DocsLayoutComponent} from "./pages/docs-layout/docs-layout.component";
 import {DocsComponent} from "./pages/docs/docs.component";
@@ -27,10 +27,10 @@ const routes: Routes = [
         path: "",
         redirectTo: "guide/getting-started"
       },
-      {
-        path: "api/:apiName",
-        component: DocListComponent
-      },
+      // {
+      //   path: "api/:apiName",
+      //   component: DocListComponent
+      // },
       {
         path: "api/:apiName/:docName",
         component: DocComponent
