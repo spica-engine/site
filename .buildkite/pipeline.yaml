@@ -108,6 +108,8 @@ steps:
       - build_prod
     <<: *api_test_docker_plugin
     commands:
+      - yarn --silent bazelisk build //docs/content
+      - yarn --cwd=docs/site ng build --prod --progress=false
       - export GOOGLE_APPLICATION_CREDENTIALS="/root/website-service-account.json"
       - yarn firebase deploy
       # - gcloud auth activate-service-account --key-file=/root/service-account.json
