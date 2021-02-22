@@ -10,6 +10,8 @@ var_1: &api_test_docker_plugin
           # - "/var/cache/spica/stacks/cli/node_modules:/spica/stacks/cli/node_modules"
           - "/var/cache/spica/docs/site/node_modules:/spica/docs/site/node_modules"
           - "./.buildkite/bazel.rc:/etc/bazel.bazelrc"
+          # These are secrets, which shall not be exposed that are stored in the agent
+          - "/root/website-service-account.json:/root/website-service-account.json"
           # This is here to enable us write e2e against docker
           # - "/var/run/docker.sock:/var/run/docker.sock"
 
@@ -34,7 +36,6 @@ var_1: &api_test_docker_plugin
 steps:
   - label: ":yarn: Install packages"
     key: "install_packages"
-    if: build.branch != "master"
     <<: *api_test_docker_plugin
     commands:
       - yarn config set cache-folder /var/cache/spica/.cache
@@ -51,15 +52,13 @@ steps:
 
   - label: ":plaidml: + :bazel: Builds Docs"
     key: generate_docs
-    if: build.branch != "master"
     depends_on: "install_packages"
     <<: *api_test_docker_plugin
     commands:
       - yarn --silent bazelisk build //docs/content
-  
+
   - label: ":angular: Production Build"
     key: build_prod
-    if: build.branch != "master"
     depends_on: 
       - install_packages
       - generate_docs
@@ -100,21 +99,22 @@ steps:
   #     - yarn --cwd=stacks/spica ng build --prod --progress=false
   #     - yarn bazel run deploy.replace -- --config=release -- --force
 
-  # - label: ":npm: + :docker: Release"
-  #   key: release
-  #   # There is two $ because of environment variable substitution
-  #   # See: https://buildkite.com/docs/pipelines/conditionals
-  #   if: build.branch =~ /^\d\.\d\.x$$/
-  #   depends_on:
-  #     - test_api
-  #     - test_spica
-  #   <<: *release_docker_plugin
-  #   commands:
-  #     - gcloud auth activate-service-account --key-file=/root/service-account.json
-  #     - gcloud config set project $GCLOUD_PROJECT_ID
-  #     - gcloud config set compute/zone $GCLOUD_COMPUTE_ZONE
-  #     - gcloud container clusters get-credentials $GCLOUD_CLUSTER_NAME
-  #     - cat /root/docker-password | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - label: ":npm: + :docker: Release"
+    key: release
+    # There is two $ because of environment variable substitution
+    # See: https://buildkite.com/docs/pipelines/conditionals
+    if: build.branch == "master"
+    depends_on:
+      - generate_docs
+      - build_prod
+    <<: *api_test_docker_plugin
+    commands:
+      - export GOOGLE_APPLICATION_CREDENTIALS="root/website-service-account.json"
+      - yarn firebase deploy
+      # - gcloud auth activate-service-account --key-file=/root/service-account.json
+      # - gcloud config set project $GCLOUD_PROJECT_ID
+      # - gcloud config set compute/zone $GCLOUD_COMPUTE_ZONE
+      # - gcloud container clusters get-credentials $GCLOUD_CLUSTER_NAME
+      # - cat /root/docker-password | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   #     - ./scripts/publish.sh latest
-
