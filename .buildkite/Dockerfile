@@ -1,3 +1,4 @@
+# TODO: Clear unnecessary installations
 # This is our base image with all necessary tooling that we need to test and release spica
 # Run    docker build .buildkite -t spicaengine/buildkite-node-with-mongodb:12      from the workspace root
 # and publish the image by running    docker push spicaengine/buildkite-node-with-mongodb:12  
