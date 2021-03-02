@@ -18,6 +18,7 @@ steps:
     commands:
       - yarn config set cache-folder /var/cache/spica/.cache
       - yarn install --frozen-lockfile --network-timeout 1000000
+      - yarn --cwd=docs/site install --frozen-lockfile --network-timeout 1000000
 
   - label: ":plaidml: + :bazel: Builds Docs"
     key: generate_docs
@@ -35,9 +36,7 @@ steps:
       - generate_docs
     <<: *docker_plugin
     commands:
-      - cd docs/site
-      - yarn install
-      - yarn ng build --prod --progress=false
+      - yarn --cwd=docs/site ng build --prod --progress=false
 
   - label: ":firebase: Deployment"
     key: deployment
@@ -47,6 +46,6 @@ steps:
     <<: *docker_plugin
     commands:
       - yarn --silent bazelisk build //docs/content
-      - cd docs/site && yarn ng build --prod --progress=false
+      - yarn --cwd=docs/site ng build --prod --progress=false
       - export GOOGLE_APPLICATION_CREDENTIALS="/root/website-service-account.json"
       - yarn firebase deploy
