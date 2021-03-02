@@ -35,7 +35,9 @@ steps:
       - generate_docs
     <<: *docker_plugin
     commands:
-      - cd docs/site && yarn ng build --prod --progress=false
+      - cd docs/site
+      - yarn install
+      - yarn ng build --prod --progress=false
 
   - label: ":firebase: Deployment"
     key: deployment
