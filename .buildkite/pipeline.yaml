@@ -19,6 +19,8 @@ steps:
       - yarn config set cache-folder /var/cache/spica/.cache
       - yarn install --frozen-lockfile --network-timeout 1000000
       - yarn global add @angular/cli
+      - yarn link @angular/cli
+
 
   - label: ":plaidml: + :bazel: Builds Docs"
     key: generate_docs
