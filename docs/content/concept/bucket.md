@@ -113,25 +113,25 @@ All accepted operators are listed below:
       - Example: `document.age` >= 18 && has(`document.access`) && !has(`document.banned`)
 
   - Array Operations:
-    - `equal(fieldPath: Array, comparingValue1, comparingValue2,...)`: Returns true if the value equals to sum of all comparing values
-      - Example: `equal(document.tag, 'herbal', 'animal', 'milk')` => If `document.tag` is equal to ['herbal','animal','milk'] 
+    - `equal(fieldPath: Array, comparingValues: Array)`: Returns true if the value equals to sum of all comparing values
+      - Example: `equal(document.tag, ['herbal', 'animal', 'milk'])` => If `document.tag` is equal to ['herbal','animal','milk']
 
-    - `every(fieldPath: Array, comparingValue1, comparingValue2,...)`: Returns true if the value includes every comparing values
-      - Example: `every(document.tag, 'herbal', 'animal')`: If `document.tag` includes 'herbal' and 'animal'
+    - `every(fieldPath: Array, comparingValues: Array)`: Returns true if the value includes every comparing values
+      - Example: `every(document.tag, ['herbal', 'animal'])`: If `document.tag` includes 'herbal' and 'animal'
 
-    - `some(fieldPath: Array, comparingValue1, comparingValue2,...)`: Returns true if the value includes any of comparing values
-      - Example: `every(document.tag, 'herbal', 'animal')`: If `document.tag` includes at least one of 'herbal' and 'animal'
+    - `some(fieldPath: Array, comparingValues: Array)`: Returns true if the value includes any of comparing values
+      - Example: `every(document.tag, ['herbal', 'animal'])`: If `document.tag` includes at least one of 'herbal' and 'animal'
 
   - String Operations
-    - `regex(fieldPath: String, regular expression, flag)`: Returns true if the value matches with the regular expression
+    - `regex(fieldPath: string, regular_expression: string, flag: string)`: Returns true if the value matches with the regular expression
       - Example: `regex(document.title,'CEO','i')`: Returns true if `document.title` is equal to 'ceo' with insensitive flag
 
   - Date Operations
     - `unixTime(fieldPath: Date)`: Returns unix timestamp of the value
-      - Example: `3600 > now() - unixTime(document.created_at)`: Returns true if one hour passed than `document.created_at`
+      - Example: `now() - unixTime(document.created_at) > 3600`: Returns true if one hour passed than `document.created_at`
 
     - `now()`: Returns current time as unix timestamp
-      - Example: `3600 > now() - unixTime(document.created_at)`: Returns true if one hour passed than `document.created_at`
+      - Example: `now() - unixTime(document.created_at) > 3600`: Returns true if one hour passed than `document.created_at`
 ### Translation and Localization
 
 **Bucket entries**, in Spica are translatable and localizable out-of-the-box.
