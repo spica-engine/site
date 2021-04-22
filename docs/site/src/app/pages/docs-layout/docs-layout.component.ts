@@ -11,7 +11,6 @@ import {DocService} from "../../services/doc.service";
   styleUrls: ["./docs-layout.component.scss"]
 })
 export class DocsLayoutComponent implements OnInit, OnDestroy {
-  // $apiDocs: Observable<any>;
   $contentDocs: Observable<any>;
   headingsInContent: {title: string; fragment: string}[];
   activeDocument: string;
@@ -29,8 +28,7 @@ export class DocsLayoutComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver,
     private route: Router
   ) {
-    // this.$apiDocs = docs.getApiDocs();
-    this.$contentDocs = docs.getContentDocs().pipe(tap(console.log));
+    this.$contentDocs = docs.getContentDocs();
 
     docs.documentChanged.pipe(takeUntil(this.onDestroy)).subscribe(data => {
       this.headingsInContent = [];
