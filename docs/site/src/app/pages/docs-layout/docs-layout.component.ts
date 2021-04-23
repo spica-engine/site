@@ -2,7 +2,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Router} from "@angular/router";
 import {Observable, Subject} from "rxjs";
-import {map, startWith, takeUntil} from "rxjs/operators";
+import {map, startWith, takeUntil, tap} from "rxjs/operators";
 import {DocService} from "../../services/doc.service";
 
 @Component({
