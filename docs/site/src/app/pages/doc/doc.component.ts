@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
-import {map, switchMap, tap} from "rxjs/operators";
+import {delay, map, switchMap, tap} from "rxjs/operators";
 import {DocService} from "../../services/doc.service";
 
 @Component({

@@ -1,9 +1,9 @@
-import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {Component, OnInit, OnDestroy} from "@angular/core";
-import {Router} from "@angular/router";
-import {Observable, Subject} from "rxjs";
-import {map, startWith, takeUntil} from "rxjs/operators";
-import {DocService} from "../../services/doc.service";
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
+import { Observable, Subject } from "rxjs";
+import { map, startWith, takeUntil } from "rxjs/operators";
+import { DocService } from "../../services/doc.service";
 
 @Component({
   selector: "app-docs-layout",
@@ -13,7 +13,7 @@ import {DocService} from "../../services/doc.service";
 export class DocsLayoutComponent implements OnInit, OnDestroy {
   // $apiDocs: Observable<any>;
   $contentDocs: Observable<any>;
-  headingsInContent: {title: string; fragment: string}[];
+  headingsInContent: { title: string; fragment: string }[];
   activeDocument: string;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe([Breakpoints.Handset, Breakpoints.Tablet])
@@ -45,9 +45,10 @@ export class DocsLayoutComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnDestroy() {
     this.onDestroy.next();
   }
 }
+

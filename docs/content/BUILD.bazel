@@ -7,6 +7,7 @@ docs(
     # buildifier: leave-alone
     data = [
         "//docs/content/concept",
+        "//docs/content/modules",
         "//docs/content/guide",
         # "//docs/content/api",
     ],
