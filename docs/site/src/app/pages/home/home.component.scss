@@ -167,17 +167,56 @@
 
   home-section.discover {
     background: #f2f1f0;
-    ul {
+    .examples {
       list-style-type: none;
       padding-left: 0;
-      li {
+      flex-wrap: wrap;
+      .example {
+        min-width: 400px;
+        margin-top: 40px;
+        flex: 1;
         line-height: 2;
+        border: 1px solid rgba(0,0,0,.07);
+        border-radius: 5px;
+        background: white;
+        overflow: hidden;
+        max-width: calc(33% - 20px);
         h2 {
           font-weight: 400;
           margin-bottom: 0;
+          padding: 0px 30px;
         }
         p {
           font-weight: 100;
+          padding: 0px 30px;
+        }
+        .tags{
+          display: flex;
+          flex-wrap: wrap;
+          padding: 0px 30px;
+          *{
+            margin: 0px 10px 10px 0px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            font-size: 0.8rem;
+          }
+        }
+        .buttons{
+          border-top: 1px solid rgba(0,0,0,.07);
+          padding: 30px 30px 20px 30px;
+          background: #1c1c50;
+          a{
+            margin-right: 10px;
+            margin-bottom: 10px;
+            &::ng-deep .mat-button-wrapper{
+              display: flex !important;
+              align-items: center !important;
+            }
+            img{
+              margin-right: 5px;
+            }
+          }
         }
       }
     }

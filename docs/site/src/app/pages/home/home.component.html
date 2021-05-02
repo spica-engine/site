@@ -1,20 +1,8 @@
 <app-header>
-  <section
-    class="headline"
-    fxLayout="row"
-    fxLayoutAlign="space-between flex-start"
-    fxLayoutAlign.lt-lg="center center"
-    ngClass.gt-md="desktop"
-  >
-    <div
-      fxFlex="45"
-      fxLayout="column"
-      fxLayoutAlign="flex-start"
-      class="button-group"
-      intersect
-      #intersect13="intersect"
-      [@flyOneByOne]="intersect13.isIntersecting"
-    >
+  <section class="headline" fxLayout="row" fxLayoutAlign="space-between flex-start" fxLayoutAlign.lt-lg="center center"
+    ngClass.gt-md="desktop">
+    <div fxFlex="45" fxLayout="column" fxLayoutAlign="flex-start" class="button-group" intersect
+      #intersect13="intersect" [@flyOneByOne]="intersect13.isIntersecting">
       <h1>
         An open source <br />
         backend development engine!
@@ -30,11 +18,7 @@
         <a mat-icon-button href="https://twitter.com/SpicaEngine" target="_blank">
           <mat-icon svgIcon="twitter"></mat-icon>
         </a>
-        <a
-          mat-icon-button
-          href="https://www.facebook.com/Spica-Development-Engine-292036878363505/"
-          target="_blank"
-        >
+        <a mat-icon-button href="https://www.facebook.com/Spica-Development-Engine-292036878363505/" target="_blank">
           <mat-icon svgIcon="facebook"></mat-icon>
         </a>
         <a mat-icon-button href="https://github.com/spica-engine/spica">
@@ -59,43 +43,26 @@
       </div>
       <div class="images" intersect #intersect7="intersect" [@flyOne]="intersect7.isIntersecting">
         <div>
-          <img
-            (click)="slideIndex = 0"
-            [class.active]="slideIndex == 0"
-            src="../../../assets/images/featured_image_1.png"
-          />
-          <img
-            (click)="slideIndex = 1"
-            [class.active]="slideIndex == 1"
-            src="../../../assets/images/featured_image_2.png"
-          />
-          <img
-            (click)="slideIndex = 2"
-            [class.active]="slideIndex == 2"
-            src="../../../assets/images/featured_image_3.png"
-          />
-          <img
-            (click)="slideIndex = 3"
-            [class.active]="slideIndex == 3"
-            src="../../../assets/images/featured_image_4.png"
-          />
+          <img (click)="slideIndex = 0" [class.active]="slideIndex == 0"
+            src="../../../assets/images/featured_image_1.png" />
+          <img (click)="slideIndex = 1" [class.active]="slideIndex == 1"
+            src="../../../assets/images/featured_image_2.png" />
+          <img (click)="slideIndex = 2" [class.active]="slideIndex == 2"
+            src="../../../assets/images/featured_image_3.png" />
+          <img (click)="slideIndex = 3" [class.active]="slideIndex == 3"
+            src="../../../assets/images/featured_image_4.png" />
         </div>
       </div>
     </div>
   </section>
   <div class="wave" inlineSVG="/assets/images/wave-white.svg"></div>
 </app-header>
-<home-section
-  class="major-features"
-  title="Major Features"
-  description="It has many features that allows you to create contents simply."
-  intersect
-  #intersect1="intersect"
-  [@fly]="intersect1.isIntersecting"
->
+<home-section class="major-features" title="Major Features"
+  description="It has many features that allows you to create contents simply." intersect #intersect1="intersect"
+  [@fly]="intersect1.isIntersecting">
   <div fxFlex="33" fxFlex.lt-md="100">
     <img src="assets/artboard/functions.svg" alt="Function" />
-    <h2>Functions</h2>
+    <h2>Cloud Functions</h2>
     <p>
       You can apply any kind of logic to your projects. As this is the only module which needs some
       knowledge of coding, we made this module limitless. Developers, this is your playground in
@@ -138,56 +105,80 @@
   <footer inlineSVG="/assets/images/wave-gray.svg"></footer>
 </home-section>
 
-<home-section
-  class="discover"
-  title="Who Is This For?"
-  description="Feature sets for powerfull applications and startups"
-  cnFxLayout.gt-sm="row nowrap"
-  cnFxLayoutAlign.gt-sm="space-around center"
->
-  <img
-    intersect
-    #intersect2="intersect"
-    [@flyOne]="intersect2.isIntersecting"
-    fxFlex.lt-md="30%"
-    fxFlex.gt-sm="35%"
-    single="true"
-    src="assets/artboard/discover.svg"
-    alt="Discover"
-  />
-  <ul
-    fxFlex.lt-md="100%"
-    fxFlex="50%"
-    fxLayout="column"
-    fxLayoutAlign="space-between"
-    intersect
-    #intersect8="intersect"
-    [@flyOneByOne]="intersect8.isIntersecting"
-  >
-    <li>
-      <h3>Start-ups who want to exceed the limits of low-code tools</h3>
-      <p>
-        Everything in Spica has been designed to save time and cost without losing flexibility. You
-        will have full control as a project owner and create the most flexible project
-        infrastructure in a few minutes.
-      </p>
-    </li>
-    <li>
-      <h3>Freelancers & consultancies</h3>
-      <p>
-        Spica designed for developers and technical teams. You can double your speed with the first
-        backend engine.
-        <!--With easy-to-use composer, you can display your data in sweet harmony.-->
-      </p>
-    </li>
-    <li>
-      <h3>For the complex projects owners</h3>
-      <p>
-        To shape your ideas, Spica is the best environment for your developers with the 3rd parties,
-        designed for your needs.
-      </p>
-    </li>
-  </ul>
+<home-section class="discover" title="Examples & Starters" description="Ready-to-use starter projects and examples"
+  cnFxLayout="row" cnFxLayoutAlign="space-between">
+  <div fxFlex="100%" class="examples" fxLayoutAlign="space-between start" intersect #intersect8="intersect"
+    [@flyOneByOne]="intersect8.isIntersecting">
+    <div class="example">
+      <h2>Chat Application</h2>
+      <p>A simple chat application with Ionic + Spica. <br> Spica Panel Username: admin <br> Spica Panel Password: admin</p>
+      <div class="tags">
+        <p>Ionic</p>
+        <p>@spica-devkit/bucket</p>
+        <p>Realtime Database</p>
+      </div>
+      <div class="buttons">
+        <a mat-flat-button target="_blank" href="https://github.com/spica-engine/example-chat">
+          <img width="18" height="18" src="assets/icons/ionic.png" />
+          Ionic
+        </a>
+        <a mat-flat-button target="_blank" href="https://example-chat-d5746.hq.spicaengine.com">
+          <img width="18" height="18" src="assets/icons/icon-72x72.png" />
+          Spica
+        </a>
+        <a mat-flat-button target="_blank" href="https://example-chat-818e9.web.app/">
+          <img width="18" height="18" src="assets/icons/link.svg" />
+          Demo
+        </a>
+      </div>
+    </div>
+    <div class="example">
+      <h2>Simple Kanban Project</h2>
+      <p>A simple kanban example with authentication layer. <br> Spica Panel Username: admin <br> Spica Panel Password: admin</p>
+      <div class="tags">
+        <p>Angular</p>
+        <p>@spica-devkit/bucket</p>
+        <p>@spica-devkit/identity</p>
+        <p>Authentication</p>
+      </div>
+      <div class="buttons">
+        <a mat-flat-button target="_blank" href="https://github.com/spica-engine/example-kanban">
+          <img width="18" height="18" src="assets/icons/angular.png" />
+          Angular
+        </a>
+        <a mat-flat-button target="_blank" href="https://example-kanban-c95ef.hq.spicaengine.com">
+          <img width="18" height="18" src="assets/icons/icon-72x72.png" />
+          Spica
+        </a>
+        <a mat-flat-button target="_blank" href="https://example-kanban.web.app/">
+          <img width="18" height="18" src="assets/icons/link.svg" />
+          Demo
+        </a>
+      </div>
+    </div>
+    <div class="example">
+      <h2>Basic Blog Site</h2>
+      <p>Blog site starter database schema and example Angular project.<br> Spica Panel Username: admin <br> Spica Panel Password: admin</p>
+      <div class="tags">
+        <p>Angular</p>
+        <p>@spica-devkit/bucket</p>
+      </div>
+      <div class="buttons">
+        <a mat-flat-button target="_blank" href="https://github.com/spica-engine/simple-blog-example">
+          <img width="18" height="18" src="assets/icons/angular.png" />
+          Angular
+        </a>
+        <a mat-flat-button target="_blank" href="https://example-blog-fee8f.hq.spicaengine.com/">
+          <img width="18" height="18" src="assets/icons/icon-72x72.png" />
+          Spica
+        </a>
+        <a mat-flat-button target="_blank" href="https://example-blog-b8ef0.web.app/">
+          <img width="18" height="18" src="assets/icons/link.svg" />
+          Demo
+        </a>
+      </div>
+    </div>
+  </div>
 </home-section>
 
 <section class="projects" fxLayoutAlign.gt-md="space-evenly" fxLayoutAlign.lt-lg="center">
@@ -209,19 +200,9 @@
   </div>
 </section>
 
-<section
-  class="audience"
-  fxLayout="column"
-  fxLayoutAlign="center center"
-  fxLayoutGap.lt-md="20px"
-  fxLayoutGap="50px"
->
-  <div
-    fxLayout.lt-md="column-reverse"
-    fxLayoutAlign="space-between center"
-    flexLayout.gt-sm="row"
-    fxLayoutGap.gt-sm="20%"
-  >
+<section class="audience" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap.lt-md="20px" fxLayoutGap="50px">
+  <div fxLayout.lt-md="column-reverse" fxLayoutAlign="space-between center" flexLayout.gt-sm="row"
+    fxLayoutGap.gt-sm="20%">
     <span intersect #intersect9="intersect" [@flyOneByOne]="intersect9.isIntersecting">
       <h1>For Developers</h1>
       <p>
@@ -237,32 +218,13 @@
         spend time on 3rd party integrations.
       </p>
     </span>
-    <img
-      fxFlex="30%"
-      intersect
-      #intersect3="intersect"
-      single="true"
-      [@flyOne]="intersect3.isIntersecting"
-      alt="For developers"
-      src="assets/artboard/for-developers.svg"
-    />
+    <img fxFlex="30%" intersect #intersect3="intersect" single="true" [@flyOne]="intersect3.isIntersecting"
+      alt="For developers" src="assets/artboard/for-developers.svg" />
   </div>
 
-  <div
-    fxLayout.lt-md="column"
-    fxLayoutAlign="space-between center"
-    flexLayout.gt-sm="row"
-    fxLayoutGap.gt-sm="20%"
-  >
-    <img
-      fxFlex="30%"
-      intersect
-      single="true"
-      #intersect4="intersect"
-      [@flyOne]="intersect4.isIntersecting"
-      alt="For agencies"
-      src="assets/artboard/for-agencies.svg"
-    />
+  <div fxLayout.lt-md="column" fxLayoutAlign="space-between center" flexLayout.gt-sm="row" fxLayoutGap.gt-sm="20%">
+    <img fxFlex="30%" intersect single="true" #intersect4="intersect" [@flyOne]="intersect4.isIntersecting"
+      alt="For agencies" src="assets/artboard/for-agencies.svg" />
     <span intersect #intersect10="intersect" [@flyOneByOne]="intersect10.isIntersecting">
       <h1>For Agencies</h1>
       <p>
@@ -280,12 +242,8 @@
     </span>
   </div>
 
-  <div
-    fxLayout.lt-md="column-reverse"
-    fxLayoutAlign="space-between center"
-    flexLayout.gt-sm="row"
-    fxLayoutGap.gt-sm="20%"
-  >
+  <div fxLayout.lt-md="column-reverse" fxLayoutAlign="space-between center" flexLayout.gt-sm="row"
+    fxLayoutGap.gt-sm="20%">
     <span intersect #intersect11="intersect" [@flyOneByOne]="intersect11.isIntersecting">
       <h1>For Marketers</h1>
       <p>
@@ -301,31 +259,15 @@
         easily, we give extraordinary support services.
       </p>
     </span>
-    <img
-      fxFlex="30%"
-      intersect
-      single="true"
-      #intersect5="intersect"
-      [@flyOne]="intersect5.isIntersecting"
-      src="assets/artboard/for-marketers.svg"
-      alt="For marketers"
-    />
+    <img fxFlex="30%" intersect single="true" #intersect5="intersect" [@flyOne]="intersect5.isIntersecting"
+      src="assets/artboard/for-marketers.svg" alt="For marketers" />
   </div>
 </section>
 
 <home-section class="description" title="Way to Create Something Game Changer">
-  <img
-    fxFlex.gt-sm="25%"
-    fxFlex.lt-md="45%"
-    fxFlexAlign.gt-sm="flex-start"
-    ngClass.gt-sm="desktop"
-    intersect
-    single="true"
-    #intersect6="intersect"
-    [@flyOne]="intersect6.isIntersecting"
-    alt="Astro boy"
-    src="assets/artboard/tool-and-astro-boy.svg"
-  />
+  <img fxFlex.gt-sm="25%" fxFlex.lt-md="45%" fxFlexAlign.gt-sm="flex-start" ngClass.gt-sm="desktop" intersect
+    single="true" #intersect6="intersect" [@flyOne]="intersect6.isIntersecting" alt="Astro boy"
+    src="assets/artboard/tool-and-astro-boy.svg" />
   <ul intersect #intersect12="intersect" [@flyOneByOne]="intersect12.isIntersecting">
     <li>
       <h3>Define your data models</h3>

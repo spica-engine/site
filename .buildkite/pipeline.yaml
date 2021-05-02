@@ -18,6 +18,7 @@ steps:
     commands:
       - yarn config set cache-folder /var/cache/spica/.cache
       - yarn install --frozen-lockfile --network-timeout 1000000
+      - yarn --cwd=docs/site install --frozen-lockfile --network-timeout 1000000
 
   - label: ":plaidml: + :bazel: Builds Docs"
     key: generate_docs

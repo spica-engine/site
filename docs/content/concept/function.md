@@ -336,9 +336,9 @@ You can invoke a function in real-time from your client application. It is a gre
 As an example, if you are making a game and run a real-time server-side logic that will communicate with the client application such as real-time point calculating, you can calculate score and deliver the result in real-time using the firehose trigger.
 
 ```typescript
-export default function(message, {socket, pool}) {
-  console.log(message.name); // Outputs: connection
-  console.log(message.data.url); // Outputs: /firehose
+export default function({socket, pool} ,message) {
+  console.log(message.name); // The event name that has been triggered
+  console.log(message.data); // Use this field for passing data from client to server
 
   const isAuthorized = false; // Decide if the user has been authorized.
 
@@ -352,7 +352,9 @@ export default function(message, {socket, pool}) {
       ip_address: socket.remoteAddress
     });
   } else {
+    // Write back to incoming socket that authorization has been failed.
     socket.send("authorization", {state: false, error: "Authorization has failed."});
+    // Close the incoming socket in order to end the connection and remove it from the pool
     socket.close();
   }
 }
