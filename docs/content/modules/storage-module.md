@@ -15,9 +15,9 @@ import * as Storage from "@spica-devkit/storage";
 
 // Your API will serve under your spica instance url + "/api"
 // Example API url example.hq.spicaengine.com/api
-Storage.initialize({apikey: "APIKEY <APIKEY>", publicUrl: "<YOUR API URL>"}); 
+Storage.initialize({apikey: "<APIKEY>", publicUrl: "<YOUR API URL>"}); 
 OR
-Storage.initialize({identity: "IDENTITY <USER TOKEN>", publicUrl: "<YOUR API URL>"}); 
+Storage.initialize({identity: "<USER TOKEN>", publicUrl: "<YOUR API URL>"}); 
 ```
 
 ### Operations
@@ -30,7 +30,7 @@ Here is some fundamental examples;
 import * as Storage from "@spica-devkit/storage";
 
 export default function(req, res) {
-  Storage.initialize({identity: "IDENTITY <USER TOKEN>"});
+  Storage.initialize({identity: "<USER TOKEN>"});
   return Storage.get("<STORAGE ID>");
 }
 ```
@@ -41,7 +41,7 @@ export default function(req, res) {
 import * as Storage from "@spica-devkit/storage";
 
 export default function(req, res) {
-  Storage.initialize({identity: "IDENTITY <USER TOKEN>"});
+  Storage.initialize({identity: "<USER TOKEN>"});
   return Storage.getAll();
 }
 ```
@@ -52,7 +52,7 @@ export default function(req, res) {
 import * as Storage from "@spica-devkit/storage";
 
 export default function(req, res) {
-  Storage.initialize({identity: "IDENTITY <USER TOKEN>"});
+  Storage.initialize({identity: "<USER TOKEN>"});
 
   let storageObjects = <BUFFER OBJECT>;
 
@@ -70,7 +70,7 @@ export default function(req, res) {
 import * as Storage from "@spica-devkit/storage";
 
 export default function(req, res) {
-  Storage.initialize({identity: "IDENTITY <USER TOKEN>"});
+  Storage.initialize({identity: "<USER TOKEN>"});
 
   let storageObjects = [<FIRST BUFFER OBJECT>,<SECOND BUFFER OBJECT>,<THIRD BUFFER OBJECT>];
   
@@ -87,7 +87,7 @@ export default function(req, res) {
 import * as Storage from "@spica-devkit/storage";
 
 export default function(req, res) {
-  Storage.initialize({identity: "IDENTITY <USER TOKEN>"});
+  Storage.initialize({identity: "<USER TOKEN>"});
 
   let updatedStorage = <BUFFER OBJECT>;
 
@@ -104,7 +104,7 @@ export default function(req, res) {
 import * as Storage from "@spica-devkit/storage";
 
 export default function(req, res) {
-  Storage.initialize({identity: "IDENTITY <USER TOKEN>"});
+  Storage.initialize({identity: "<USER TOKEN>"});
 
   // Storage.remove("<STORAGE ID>");
   return Storage.remove("5f10302b4d858d1824e57e6d");

@@ -11,9 +11,9 @@ To initialize a bucket, simply use `initialize` function exported from `@spica-d
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
 
-Bucket.initialize({apikey: "APIKEY <APIKEY>", publicUrl: "<YOUR API URL>"}); // Your API will serve under your spica instance url + "/api"
+Bucket.initialize({apikey: "<APIKEY>", publicUrl: "<YOUR API URL>"}); // Your API will serve under your spica instance url + "/api"
 OR
-Bucket.initialize({identity: "IDENTITY <USER TOKEN>", publicUrl: "<YOUR API URL>"}); // Example API url example.hq.spicaengine.com/api
+Bucket.initialize({identity: "<USER TOKEN>", publicUrl: "<YOUR API URL>"}); // Example API url example.hq.spicaengine.com/api
 ```
 
 ##### Operations
@@ -24,7 +24,7 @@ Bucket.initialize({identity: "IDENTITY <USER TOKEN>", publicUrl: "<YOUR API URL>
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.get("<BUCKET ID>");
 }
 ```
@@ -35,7 +35,7 @@ export default function(req, res) {
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.getAll();
 }
 ```
@@ -46,7 +46,7 @@ export default function(req, res) {
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
 
   let bucket = {
     title: "Example Bucket",
@@ -76,7 +76,7 @@ export default function(req, res) {
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
 
   let bucket = {
     title: "Example Bucket",
@@ -109,7 +109,7 @@ export default function(req, res) {
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.remove("5f10302b4d858d1824e57e6d");
 }
 ```
@@ -120,7 +120,7 @@ export default function(req, res) {
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.data.get("<BUCKET ID>", "<BUCKET DATA ID>");
 }
 ```
@@ -148,7 +148,7 @@ For more information about `Access Control Rules`, please visit [this page](http
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.data.getAll("<BUCKET ID>", {
     headers: {"accept-language": "TR"},
     queryParams: {paginate: true, skip: 1}
@@ -178,7 +178,7 @@ For more information about Access Control Rules, please visit [this page](https:
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
 
   let document = {
     name: "123",
@@ -195,7 +195,7 @@ export default function(req, res) {
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
 
   let document = {
     name: "123",
@@ -209,13 +209,30 @@ export default function(req, res) {
 }
 ```
 
-###### Bucket Data Remove
+## Bucket Data Patch
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
 
 export default function(req, res) {
-  Bucket.initialize({apikey: "IDENTITY <USER TOKEN>"});
+  Bucket.initialize({identity: "<USER TOKEN>"});
+
+  let patchedFields = {
+    title: "Example Bucket",
+    description: "Example description"
+  };
+
+  return Bucket.data.patch("5f10302b4d858d1824e57e6d", patchedFields);
+}
+```
+
+## Bucket Data Remove
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.data.remove("<BUCKET ID>", "<BUCKET DATA ID>");
 }
 ```

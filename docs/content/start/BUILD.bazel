@@ -1,0 +1,13 @@
+package(default_visibility = ["//visibility:public"])
+
+load("//tools/dgeni:index.bzl", "docs")
+
+docs(
+    name = "start",
+    # buildifier: leave-alone
+    srcs = [
+        "index.md",
+        "getting-started.md",
+        "where-to-start.md",
+    ],
+)

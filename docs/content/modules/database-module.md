@@ -8,7 +8,7 @@ The database module is an in-memory module that has a public API for basic datab
 
 #### Connecting to the database
 
-You can get the database instance with the `database()` function exported from `@spica-devkit/database` module.
+You can get the database instance with the `database()` function exported from `@spica-devkit/database` module. This module will is designed to work in Spica instance. That's why, you can NOT use this module in your client application.
 
 ```typescript
 import {database, Database} from "@spica-devkit/database";
@@ -43,10 +43,9 @@ export default async function() {
 
   // insertOne will return Promise<void>
   await books.insertOne({
-    name: "The Fall Of Leaves",
-    translator: "W. D. Halsey",
-    available_in: ["English", "Turkish"]
-    author: "Resat Nuri Guntekin",
+    name: "The Lord Of The Rings",
+    available_in: ["English"]
+    author: "J. R. R. Tolkien",
     year: 1930
   });
 }
@@ -85,6 +84,21 @@ export default async function() {
 
   // Find the book named The Fall Of Leaves
   const book = await books.findOne({name: "The Fall Of Leaves"});
+  console.dir(book);
+  // Result will be { name: "The Fall Of Leaves", ... }
+}
+```
+
+## Find By ID
+
+```typescript
+import {database, Database, Collection} from "@spica-devkit/database";
+
+export default async function() {
+  const db: Database = await database();
+  const books: Collection = db.collection("books");
+
+  const book = await books.findById("5f10302b4d858d1824e57e6d");
   console.dir(book);
   // Result will be { name: "The Fall Of Leaves", ... }
 }

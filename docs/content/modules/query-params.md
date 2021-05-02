@@ -39,7 +39,7 @@ Example below  will resolve only user field in the root object
 Example below  will resolve user and wallet in user object, also will resolve bank in the root object
 > GET: `<YOUR-API>/data?relation=user.wallet&relation=bank`
 
-Example below  will return total entries count
+Example below  will return total entries count with all entries
 > GET: `<YOUR-API>/data?paginate=true`
 
 Example below  will return only scheduled entries
