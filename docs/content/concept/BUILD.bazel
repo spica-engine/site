@@ -8,8 +8,8 @@ docs(
     srcs = [
         "index.md",
         "bucket.md",
-        "function.md",
         "passport.md",
+        "function.md",
         "storage.md",
         "dashboard.md",
         "user-activities.md",

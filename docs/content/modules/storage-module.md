@@ -46,6 +46,21 @@ export default function(req, res) {
 }
 ```
 
+## Download
+```typescript
+import * as Storage from "@spica-devkit/storage";
+
+export default function(req, res) {
+  Storage.initialize({identity: "<USER TOKEN>"});
+
+  // Storage.download(<STORAGE ID>,<HEADERS OBJECT>,(progress)=>{});
+  return Storage.download("5f10302b4d858d1824e57e6d",(progress) => {
+      const loadedPercentage = (progress.loaded / progress.total) * 100;
+      console.log(`Download progress: %${loadedPercentage}`);  
+    });
+}
+```
+
 ## Insert
 
 ```typescript
@@ -57,9 +72,10 @@ export default function(req, res) {
   let storageObjects = <BUFFER OBJECT>;
 
   
-  // Storage.insert(<STORAGE OBJECT>);
+  // Storage.insert(<STORAGE OBJECT>,(progress)=>{});
   return Storage.insert(storageObjects, (data) => {
-    console.log(data)
+    const loadedPercentage = (progress.loaded / progress.total) * 100;
+    console.log(`Upload progress: %${loadedPercentage}`);  });
   });
 }
 ```
@@ -74,9 +90,10 @@ export default function(req, res) {
 
   let storageObjects = [<FIRST BUFFER OBJECT>,<SECOND BUFFER OBJECT>,<THIRD BUFFER OBJECT>];
   
-  // Storage.insert(<STORAGE OBJECT>);
+  // Storage.insert(<STORAGE OBJECT>,(progress)=>{});
   return Storage.insertMany(storageObjects, (data) => {
-    console.log(data)
+    const loadedPercentage = (progress.loaded / progress.total) * 100;
+    console.log(`Upload progress: %${loadedPercentage}`);  });
   });
 }
 ```
@@ -91,9 +108,10 @@ export default function(req, res) {
 
   let updatedStorage = <BUFFER OBJECT>;
 
-  // Storage.update("<STORAGE ID>", <STORAGE OBJECT>);
+  // Storage.update(<STORAGE ID>, <STORAGE FILE>, (progress)=>{});
   return Storage.update("5f10302b4d858d1824e57e6d", updatedStorage, (data) => {
-    console.log(data)
+    const loadedPercentage = (progress.loaded / progress.total) * 100;
+    console.log(`Upload progress: %${loadedPercentage}`);  });
   });
 }
 ```

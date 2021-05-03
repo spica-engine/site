@@ -6,6 +6,7 @@ docs(
     name = "pro",
     # buildifier: leave-alone
     srcs = [
-        "cloud-functions.md"
+        "cloud-functions.md",
+        "user-as-content.md",
     ],
 )

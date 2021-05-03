@@ -1,4 +1,4 @@
-# Hints For Cloud Functions
+# Cloud Function Hints
 
 ## Table of contents
 
@@ -32,7 +32,7 @@ import {database} from "@spica-devkit/bucket";
 import * as Identity from "@spica-devkit/identity";
 
 let db; 
-// 
+// end: global code section
   
 // This part will work multiple times
 export default async function(){
@@ -45,7 +45,7 @@ export default async function(){
 
   return;
 }
-//
+// end: exported function
 ```
 
 After these steps, the response time will be reduced 90%. As an example, it will return 0.3 seconds if it returns in 1.5 seconds before.
