@@ -53,11 +53,11 @@ import * as Storage from "@spica-devkit/storage";
 export default function(req, res) {
   Storage.initialize({identity: "<USER TOKEN>"});
 
-  // Storage.download(<STORAGE ID>,<HEADERS OBJECT>,(progress)=>{});
-  return Storage.download("5f10302b4d858d1824e57e6d",(progress) => {
+  // Storage.download(<STORAGE ID>,{ headers?: <HEADERS OBJECT>, onDownloadProgress?: (progress) => void });
+  return Storage.download("5f10302b4d858d1824e57e6d",{onDownloadProgress:(progress) => {
       const loadedPercentage = (progress.loaded / progress.total) * 100;
       console.log(`Download progress: %${loadedPercentage}`);  
-    });
+    }});
 }
 ```
 
