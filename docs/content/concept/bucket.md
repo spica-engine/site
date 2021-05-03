@@ -120,7 +120,7 @@ All accepted operators are listed below:
       - Example: `every(document.tag, ['herbal', 'animal'])`: If `document.tag` includes 'herbal' and 'animal'
 
     - `some(fieldPath: Array, comparingValues: Array)`: Returns true if the value includes any of comparing values
-      - Example: `every(document.tag, ['herbal', 'animal'])`: If `document.tag` includes at least one of 'herbal' and 'animal'
+      - Example: `some(document.tag, ['herbal', 'animal'])`: If `document.tag` includes at least one of 'herbal' and 'animal'
 
   - String Operations
     - `regex(fieldPath: string, regular_expression: string, flag: string)`: Returns true if the value matches with the regular expression

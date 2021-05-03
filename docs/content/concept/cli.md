@@ -1,5 +1,7 @@
 # CLI
 
+## Table of contents
+
 Spica prodivdes CLI to manage your instances. To use CLI, simply enter the following command to your terminal:
 
 ```shell
@@ -14,9 +16,9 @@ $ spica <command> [<args>] [--help] [options]
 
 > Important: To run `serve` command, you must have [Docker](https://www.docker.com/) and [NodeJs](https://nodejs.org) installed on your development environment.
 
-## Commands
+### Commands
 
-### Run / List / Remove Local Spica Instance
+## Local Spica Instance
 
 Run a Spica instance on your local machine:
 
@@ -36,7 +38,7 @@ Shows a list of spica instances running on this machine:
 $ spica project ls
 ```
 
-### Dependency Install
+## Dependency Install
 
 Installs desired package to all available functions:
 
@@ -44,7 +46,7 @@ Installs desired package to all available functions:
 $ spica function dependency install <package name> --all
 ```
 
-### Login
+## Login
 
 To login desired Spica instance:
 
@@ -52,7 +54,7 @@ To login desired Spica instance:
 $ spica login <username> <password> --server=<server url>
 ```
 
-### Pull / Push Spica Functions
+## Pull - Push Functions
 
 To pull functions to your directory from logged in Spica instance:
 
