@@ -7,10 +7,9 @@ docs(
     # buildifier: leave-alone
     srcs = [
         "index.md",
-        "getting-started.md",
         "bucket.md",
-        "function.md",
         "passport.md",
+        "function.md",
         "storage.md",
         "dashboard.md",
         "user-activities.md",
