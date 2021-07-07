@@ -12,14 +12,16 @@
       }
 
       img {
-        max-width: 10% !important;
+        object-fit: contain;
+        max-height: 60px !important;
       }
 
-      p {
+      a {
         align-self: center;
         text-align: left;
         margin: 10px;
-
+        text-decoration: none;
+        color: #1c1c50;
         span {
           margin-top: 2px;
           display: block;
@@ -29,11 +31,7 @@
 
     .mobile {
       div {
-        img {
-          max-width: 30% !important;
-        }
-
-        p {
+        a {
           font-size: 11px !important;
         }
       }

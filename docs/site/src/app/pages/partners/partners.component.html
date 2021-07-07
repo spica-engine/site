@@ -1,12 +1,8 @@
 <app-header></app-header>
 
-<home-section
-  class="partners"
-  title="Best Partners For Your Needs"
-  description="Choose a best partner for your needs. There are dozens of
+<home-section class="partners" title="Best Partners For Your Needs" description="Choose a best partner for your needs. There are dozens of
   selected partner agencies in the world. All of them are licensed agencies and having official Spica tests."
-  subtitle="Don’t hesitate to contact them for:"
->
+  subtitle="Don’t hesitate to contact them for:">
   <div fxLayout="row" fxFlex="100%" fxLayoutAlign="flex-end">
     <div fxFlex.gt-sm="25%" fxflex.lt-md="100%" fxLayoutAlign="center center">
       <div fxFlex="75%">
@@ -20,12 +16,7 @@
         </mat-form-field>
       </div>
       <div fxFlex="25%" class="partner-search">
-        <button
-          mat-flat-button
-          color="primary"
-          class="btn"
-          (click)="applyFilter(selectedCountry.value)"
-        >
+        <button mat-flat-button color="primary" class="btn" (click)="applyFilter(selectedCountry.value)">
           <mat-icon>search</mat-icon>
         </button>
       </div>
@@ -42,55 +33,24 @@
     </div>
   </div>
 
-  <div
-    intersect
-    #intersect="intersect"
-    [@fly]="intersect.isIntersecting"
-    class="left"
-    fxFlex.gt-md="60"
-    fxFlex.lt-md="100%"
-    ngClass.lt-md="mobile"
-  >
-    <div fxFlex="50">
-      <img fxFlex="50" src="assets/icons/setting.svg" alt="Setting" />
-      <p fxFlex="50">Technical <span>Consulting</span></p>
+  <div intersect #intersect="intersect" [@fly]="intersect.isIntersecting" class="left" fxFlex.gt-md="60"
+    fxFlex.lt-md="100%" ngClass.lt-md="mobile">
+    <div fxFlex="50" fxLayout="column">
+      <img fxFlex="100" src="https://www.enigmasoft.ltd.uk/images/favicon.d44218ba46106d1f958be05769ca8090.png"
+        alt="Enigma Soft" />
+      <a href="https://www.enigmasoft.ltd.uk/" target="_blank" fxFlex="100">Enigma Soft, United Kingdom</a>
     </div>
-    <div fxFlex="50">
-      <img fxFlex="50" src="assets/icons/close.svg" alt="close" />
-      <p fxFlex="50">Spica <span>Implementation</span></p>
-    </div>
-    <div fxFlex="50">
-      <img fxFlex="50" src="assets/icons/monitor.svg" alt="Monitor" />
-      <p fxFlex="50">Spica <span>Maintenance</span></p>
-    </div>
-    <div fxFlex="50">
-      <img fxFlex="50" src="assets/icons/bulb.svg" alt="Buld" />
-      <p fxFlex="50">Creating Your <span>Spica Architecture</span></p>
-    </div>
-    <div fxFlex="50">
-      <img fxFlex="50" src="assets/icons/draw.svg" alt="Draw" />
-      <p fxFlex="50">Build Your <span>Next Unicorn Project</span></p>
+    <div fxFlex="50" fxLayout="column">
+      <img fxFlex="100" src="https://www.tmndevelopment.com/assets/images/logo-black.png" alt="TMN Development" />
+      <a href="https://www.tmndevelopment.com/" target="_blank" fxFlex="100">TMN Development KG, Austria</a>
     </div>
   </div>
-  <img
-    fxFlex.gt-md="40"
-    fxFlex.gt-xs="auto"
-    ngClass.lt-md="mobile-img"
-    intersect
-    #intersect="intersect"
-    [@flyOne]="intersect.isIntersecting"
-    wait="true"
-    src="assets/artboard/partner.svg"
-    alt="Partner"
-  />
 
-  <div
-    fxLayout="row wrap"
-    fxLayout.lt-md="column"
-    fxLayoutGap="1% grid"
-    fxLayoutAlign="left center"
-    fxFlex.gt-sm="column"
-  ></div>
+  <img fxFlex.gt-md="40" fxFlex.gt-xs="auto" ngClass.lt-md="mobile-img" intersect #intersect="intersect"
+    [@flyOne]="intersect.isIntersecting" wait="true" src="assets/artboard/partner.svg" alt="Partner" />
+
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="1% grid" fxLayoutAlign="left center"
+    fxFlex.gt-sm="column"></div>
 </home-section>
 
 <app-footer></app-footer>
