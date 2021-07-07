@@ -1,0 +1,12 @@
+package(default_visibility = ["//visibility:public"])
+
+load("//tools/dgeni:index.bzl", "docs")
+
+docs(
+    name = "pro",
+    # buildifier: leave-alone
+    srcs = [
+        "cloud-functions.md",
+        "user-as-content.md",
+    ],
+)

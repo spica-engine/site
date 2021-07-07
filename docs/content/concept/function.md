@@ -360,7 +360,7 @@ export default function({socket, pool} ,message) {
 }
 ```
 
-### Environment Variables
+## Environment Variables
 
 You can define custom environment variables for your functions. If your team is a multi-disciplined team, you may need some roles to change just function variables. For this situtation, you can define environment variables which will be passed to function as a parameter. You can see an example of how environment variable works below:
 
@@ -370,18 +370,30 @@ export default function() {
 }
 ```
 
-### 3rd Party Dependencies
+## 3rd Party Dependencies
 
 This feature allows you to use 3rd party dependencies in your functions. Spica installs 3rd party libraries from NPM (node package manager). To use a 3rd party library, you just need to add it as a dependency to one of your functions by going to the particular function's edit page.
 
 > IMPORTANT: Each functions are decoupled from the Spica environment. So, if you will use the same library for different functions, you need to download the library for each function.
 
-### Debugging
+## Debugging
 
 An unhandled error will crash your function, when the error happens it will be logged to function logs.
 
-#### Logging
+### Logging
 
 A function code can have statements like `console.log`, `console.error`, when code calls a console function the output of log will be written to function's log.
 
 ![Logs](assets/images/docs/function/logs.png)
+
+## Batching
+
+Before explaining batching, we explain how the cloud functions work. There are nodeJS workers behind the cloud functions in your Spica instance. Each function will be executed in different worker as long as batching is disabled. 
+
+Batching feature designed to handle peak cloud function usages in Spica server. You will see huge difference on response time from cloud functions when you enable batching because function will be assigned to same worker if it meets with the conditions. There are two conditions:
+
+1. batching deadline: indicates how many seconds worker will wait for the next execution. As an example, let's say batching deadline is 5 seconds. In the first execution, the function will be assigned to a worker and worker will wait for the next 5 seconds. If the second execution happens in next 5 seconds, the function will be assigned to the same worker. Otherwise, it will be assigned to another worker.
+
+2. batching count: indicates how many execution worker will handle. As an example, if you set batching count 10, the worker will handled next 10 execution. After that, worker will close it self.
+
+Enabling batching will make worker alive for multiple execution. This means, executions will share the memory in worker. You should keep this in mind while developing your custom logic. 
