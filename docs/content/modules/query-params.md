@@ -16,12 +16,12 @@ let queryParameters = {
 
 ```
 
-You can see short explanations and examples for every query parameters below;
+You can see short explanations and examples for every query parameter below;
 
-Example below will return 5 entries
+The example below will return 5 entries
 > GET: `<YOUR-API>/data?limit=5`
 
-Example below  will skip 10 entries
+The example below  will skip 10 entries
 > GET: `<YOUR-API>/data?skip=10` 
 
 Example below  will order by id DESC
@@ -30,17 +30,17 @@ Example below  will order by id DESC
 Example below  will order by id DESC, skip 20 entries and get 5 next entries from the bucket
 > GET: `<YOUR-API>/data?skip=20&limit=5&sort={_id: -1}`
 
-Example below  will resolve every relation fields in the root object
+The example below  will resolve every relation field in the root object
 > GET: `<YOUR-API>/data?relation=true`
 
-Example below  will resolve only user field in the root object
+The example below  will resolve only the user field in the root object
 > GET: `<YOUR-API>/data?relation=user`
 
-Example below  will resolve user and wallet in user object, also will resolve bank in the root object
+The example below  will resolve user and wallet in the user object, also will resolve bank in the root object
 > GET: `<YOUR-API>/data?relation=user.wallet&relation=bank`
 
 Example below  will return total entries count with all entries
 > GET: `<YOUR-API>/data?paginate=true`
 
-Example below  will return only scheduled entries
+The example below  will return only scheduled entries
 > GET: `<YOUR-API>/data?schedule=true`
