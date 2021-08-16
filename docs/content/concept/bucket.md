@@ -175,4 +175,4 @@ Navigate to one of the Bucket's entries, look for the **History** button on the 
 
 ## Real-time
 
-This feature helps you to connect bucket collections and listen to the bucket data and their changes in real-time to handle constantly changing workloads. Unlike API calls, retrieved data will always be actual. You can skip some data rows or limit the amount of data you'll get. Sorting and filtering are also supported. A real-time bucket system is mostly useful for chat applications, reservation systems, and accounting.
+This feature helps you to connect bucket collections and send `POST`, `PUT`, `GET`, `DELETE`, `PATCH` requests to the bucket data and their changes in real-time to handle constantly changing workloads. Unlike API calls, retrieved data will always be actual. You can skip some data rows or limit the amount of data you'll get. Sorting and filtering are also supported. A real-time bucket system is mostly useful for chat applications, reservation systems, and accounting.
