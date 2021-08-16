@@ -12,9 +12,9 @@ Spica (a.k.a. Spica Development Engine) is an open-source package that gives vir
 
 ### Differences Between Spica API and Spica Client
 
-Spica Development Engine divided into two parts because of principal differences.
+Spica Development Engine is divided into two parts because of principal differences.
 
-Spica Client, is a user-friendly admin panel for those who like to manage their development process from a panel with a few clicks.
+Spica Client is a user-friendly admin panel for those who like to manage their development process from a panel with a few clicks.
 
 Spica API, on the other hand, is a fully controllable REST API.
 
@@ -22,29 +22,29 @@ As Spica has an API-first approach, any features of the engine are controllable 
 
 ### How To Start
 
-We recommend you to start with `Bucket` documentation if you are new to Spica. After creating a bucket and set up your rules you can play with RestAPIs or GraphQL APIs. Once you are done with APIs, following function module will allow you to create fully custom backend.
+We recommend you to start with `Bucket` documentation if you are new to Spica. After creating a bucket and set up your rules you can play with RestAPIs or GraphQL APIs. Once you are done with APIs, the following function module will allow you to create a fully custom backend.
 
 ## Features
 
 ### Custom Data Modeling
 
-Everything is designed to provide the highest speed for developing custom projects, startups and automations. From this perspective, Bucket Module is in the center of every feature. It gives custom data modeling and ready-to-consume RestAPIs and GraphQL APIs. Bucket module supports limited panel view customization for simple projects as well. For more details you can take a look at `Bucket` documentation. 
+Everything is designed to provide the highest speed for developing custom projects, startups, and automation. From this perspective, the Bucket Module is in the center of every feature. It gives custom data modeling and ready-to-consume RestAPIs and GraphQL APIs. The bucket module supports limited panel view customization for simple projects as well. For more details, you can take a look at `Bucket` documentation. 
 
 ### File Management
 
-For the file management, you can use Storage in your Spica instances. Native Storage is working on the disk in your local machine while `Managed Spica Instances` are working with built-in CDN. 
+For file management, you can use Storage in your Spica instances. Native Storage is working on the disk in your local machine while `Managed Spica Instances` are working with built-in CDN. 
 
 ### Server Side Functions
 
-Function Module is designed to completing custom backend logics such as payment integrations or other 3rd party machine-to-machine use cases. Also, you can run custom scheduled tasks in functions module. 
+Function Module is designed to completing custom backend logics such as payment integrations or other 3rd party machine-to-machine use cases. Also, you can run custom scheduled tasks in the functions module. 
 
 ### Passport Module
 
-Passport module is the built-in authentication engine in Spica environment. You can set up access policies and attach to identities in your Spica instance. For multiservice architecture, you can combine two different Spica instances with using Passport Module. For business domain users, you can use `Passport` module with integrated `Bucket` module.
+The passport module is the built-in authentication engine in the Spica environment. You can set up access policies and attach them to identities in your Spica instance. For multiservice architecture, you can combine two different Spica instances using Passport Module. For business domain users, you can use the `Passport` module with the integrated `Bucket` module.
 
 ### Dashboards
 
-Dashboards are designed as custom data presentation layer. You can create custom dashboards with 3rd Party data, `Bucket` data or static data. 
+Dashboards are designed as the custom data presentation layer. You can create custom dashboards with 3rd Party data, `Bucket` data, or static data. 
 
 ## Ecosystem
 

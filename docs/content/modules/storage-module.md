@@ -8,7 +8,7 @@
 
 ##### Initializing Storage Module
 
-To initialize a storage, simply use `initialize` function exported from `@spica-devkit/storage` module. Specify the authorization (APIKEY or IDENTITY and optional API url. 
+To initialize storage, simply use the `initialize` function exported from the `@spica-devkit/storage` module. Specify the authorization (APIKEY or IDENTITY and optional API URL. 
 
 ```typescript
 import * as Storage from "@spica-devkit/storage";
@@ -22,7 +22,7 @@ Storage.initialize({identity: "<USER TOKEN>", publicUrl: "<YOUR API URL>"});
 
 ### Operations
 
-Here is some fundamental examples;
+Here are some fundamental examples;
 
 ## Get
 

@@ -1,6 +1,6 @@
 # Query Parameters
 
-This document will explain which query parameters are accepted in Spica environment.
+This document will explain which query parameters are accepted in the Spica environment.
 
 ```typescript
 

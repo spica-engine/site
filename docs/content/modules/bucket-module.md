@@ -6,7 +6,7 @@
 
 ## Initializing Bucket Module
 
-To initialize a bucket, simply use `initialize` function exported from `@spica-devkit/bucket` module. Specify the authorization (APIKEY or IDENTITY) and optional API url.
+To initialize a bucket, simply use the `initialize` function exported from the `@spica-devkit/bucket` module. Specify the authorization (APIKEY or IDENTITY) and optional API URL.
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";

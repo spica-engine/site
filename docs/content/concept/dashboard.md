@@ -4,7 +4,7 @@
 
 The dashboard module allows you to create a new custom dashboard including custom data charts or tables.
 
-To list all of your Dashboards, simply open the **Primary** section of the side panel and click to the **list** icon.
+To list all of your Dashboards, simply open the **Primary** section of the side panel and click on the **list** icon.
 
 ## Creating a new custom Dashboard
 
@@ -200,4 +200,4 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-To see your custom dashboards, please navigate to **Primary** section on the menu.
+To see your custom dashboards, please navigate to the **Primary** section on the menu.
