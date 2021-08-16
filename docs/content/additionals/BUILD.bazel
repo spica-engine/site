@@ -3,12 +3,10 @@ package(default_visibility = ["//visibility:public"])
 load("//tools/dgeni:index.bzl", "docs")
 
 docs(
-    name = "modules",
+    name = "additionals",
     # buildifier: leave-alone
     srcs = [
-        "bucket-module.md",
-        "database-module.md",
-        "identity-module.md",
-        "storage-module.md",
+        "query-params.md",
+        "access-control-rules.md",
     ],
 )

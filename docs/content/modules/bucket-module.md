@@ -139,7 +139,7 @@ Note: Additionally, `Bucket.data.get()` function accepts a third optional `optio
 }
 ```
 
-For more information about `Access Control Rules`, please visit [this page](https://spicaengine.com/docs/guide/bucket#rules).
+For more information about `Access Control Rules`, please visit [this page](https://spicaengine.com/docs/additionals/access-control-rules).
 
 
 ## Bucket Data Get with Parameters
@@ -170,7 +170,7 @@ Note: `Bucket.data.getAll()` function accepts a third optional `options` paramet
 }
 ```
 
-For more information about Access Control Rules, please visit [this page](https://spicaengine.com/docs/guide/bucket#rules).
+For more information about Access Control Rules, please visit [this page](https://spicaengine.com/docs/additionals/access-control-rules).
 
 ## Bucket Data Insert
 

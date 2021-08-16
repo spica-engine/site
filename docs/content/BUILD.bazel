@@ -10,6 +10,7 @@ docs(
         "//docs/content/concept",
         "//docs/content/modules",
         "//docs/content/guide",
+        "//docs/content/additionals",
         "//docs/content/pro",
         # "//docs/content/api",
     ],
