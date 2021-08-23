@@ -113,6 +113,10 @@ The final form of a multilingual property will be like this:
 ...}
 ```
 
+## Rules
+
+Bucket Rules are used to apply security checks to the data. It uses the ACR syntax and follows its rules. For more information about `Access Control Rules`, please visit [this page](https://spicaengine.com/docs/additionals/access-control-rules).
+
 ## Auto-Publish
 
 For scheduled publish, there is an auto-publish feature in the bucket module. So you can set a date for a specific entry and the system will make that particular entry available at that time. You can see all scheduled entries and published entries in different tabs. To get more details about accessing to scheduled entry, please see the API reference.

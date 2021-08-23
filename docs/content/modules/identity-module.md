@@ -34,6 +34,17 @@ export default async function() {
 }
 ```
 
+## Verify Token
+
+```typescript
+import * as Identity from "@spica-devkit/identity";
+export default async function() {
+  Identity.initialize({apikey: "<API KEY>", publicUrl: "<YOUR API URL>"});
+  const tokenPayload = await Identity.verifyToken(<JWT_TOKEN>, "<API_URL>");
+  console.log(tokenPayload);
+}
+```
+
 ### Operations
 
 Here are some fundamental examples;

@@ -2,19 +2,30 @@
 
 This document will explain which query parameters are accepted in the Spica environment.
 
+| Parameter  | Description                                      | Type                                                                                                                                                                                     |
+| ---------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `limit`    | Limits the query result                          | number                                                                                                                                                                                   |
+| `skip`     | Skips number of data rows                        | number                                                                                                                                                                                   |
+| `relation` | Determines the relations resolution              | boolean or string relation typed field name array                                                                                                                                        |
+| `paginate` | Paginates the query result                       | boolean                                                                                                                                                                                  |
+| `schedule` | Includes the scheduled bucket data to the result | boolean                                                                                                                                                                                  |
+| `sort`     | Sorts the query result                           | [MongoDB Sort Aggregation](https://docs.mongodb.com/manual/reference/operator/update/sort/)                                                                                              |
+| `filter`   | Filters the query result.                        | Accepts both [MongoDB Aggregation Object](https://docs.mongodb.com/manual/reference/operator/aggregation/match/) or [ACR](https://spicaengine.com/docs/additionals/access-control-rules) |
+
 ```typescript
 
 let queryParameters = {
-  limit: 5, //number
-  skip: 10, //number
-  sort: {_id: -1}, //object
-  filter: { _age: {$gt: "15"} }, //mongoDB aggregation object
-  relation: true, //boolean or string array
-  paginate: true, //boolean
-  schedule: true, // boolean
+  limit: 5, 
+  skip: 10, 
+  sort: {_id: -1}, 
+  filter: { _age: {$gt: "15"} }, 
+  relation: true, 
+  paginate: true, 
+  schedule: true, 
 }
 
 ```
+
 
 You can see short explanations and examples for every query parameter below;
 

@@ -47,11 +47,6 @@ Once the saving is completed, you can use the **API Key** value on your API call
 ## Strategies
 Our passport module supports SSO strategies as well. You will find SSO settings screen on the “Strategies” page. Once you set up your SSO strategy, the login button will be visible on the login page. You can use both normal login and SSO login at the same time.
 
-[TODO] = how to create SSO
-
-## Additional Settings
-You can define your identity's data model fully flexibly. Spice requires email, first name, and last name. Also in the “Settings” tab, you add new fields and customize your identity data models.
-
 ## Policies
 
 
@@ -79,10 +74,13 @@ Click on the `Add Statement` button to add a new statement. You'll see a new sta
 
 `Effect`: If you want to restrict certain sets of rules, set the Effect as `Deny`, otherwise select `Allow`.
 
-`Service`: Select the scope of the Statement.
+`Module`: Select the scope of the Statement.
 
-`Actions`: After selecting the scope, this input will show up. You'll see a list of actions on the selected scope. Select one or more actions to add to your Statement.
+`Actions`: After selecting the scope, this section will show up. You'll see a list of actions on the selected scope such as `Create`, `Index`, `Delete` etc. Select one or more actions to add to your Statement.
 
-`Add Resource`: Optional. If you want to allow/deny actions on a resource based, add resource and enter the \_id of the resource. You can add an infinite number of resources to a Statement.
+`Add Resource`: Optional. If you want to allow/deny actions on a resource-based, click on the `pen` icon, and enter the \_id of the resource on either to `Include Resources` section or `Exclude Resources` section. You can add an infinite number of resources to a Statement.
 
 ![Example Custom Policy](assets/images/docs/passport/custom_policies.png)
+
+## Settings
+You can define your identity's data model fully flexibly. Spice requires email, first name, and last name. Also in the “Settings” tab, you add new fields and customize your identity data models.

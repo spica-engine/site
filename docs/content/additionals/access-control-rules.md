@@ -1,9 +1,9 @@
 
 # Access Control Rules
 
-Access control rules give you a chance to add another security level before accessing bucket APIs. Rules system is working with integrated `Passport System` and can access `Identity` information. For the business domain accounts, we recommend you create a bucket that will include all the application users' information. You can link your bucket entry with a unique identifier in the Passport module. The Passport module will pass both `auth._id` and `auth.identifier` to the rules engine. You can apply different rules for writing and reading API calls. Writing rules will be applied to every `UPDATE`, `INSERT`, `DELETE`, `PATCH` endpoints while reading rules will be applied to every `INDEX`, `GET` endpoints. You can access bucket entries using the `document` variable. 
+Access Control Rules (ACR) give you a chance to add another security level before accessing bucket APIs. ACR system is working with integrated `Passport System` and can access `Identity` information. For the business domain accounts, we recommend you create a bucket that will include all the application users' information. You can link your bucket entry with a unique identifier in the Passport module. The Passport module will pass both `auth._id` and `auth.identifier` to the ACR engine. You can apply different rules for writing and reading API calls. Writing ACR will be applied to every `UPDATE`, `INSERT`, `DELETE`, `PATCH` endpoints while reading ACR will be applied to every `INDEX`, `GET` endpoints. You can access bucket entries using the `document` variable. 
 
->Note: Rules engine will affect bucket view as well since the bucket views are consuming the same APIs.
+>Note: ACR engine will affect bucket view as well since the bucket views are consuming the same APIs.
 
 Example Bucket Schema:
 - identifier: string
@@ -11,7 +11,7 @@ Example Bucket Schema:
 - address: location
 - age: number
 
-Example Rules
+Example:
 - Writing: (`auth.identifier` == `document.identifier`) && (`document.age` > 18)
 - Reading: `true` == `true`
 

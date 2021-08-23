@@ -177,6 +177,35 @@ Please note, each component accepts takes a different kind of JSON structure.
   ]
 }
 ```
+### Example Card Response
+
+```json
+{
+  "title": "Card Title",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis libero quis ligula vulputate efficitur.",
+  "inputs": [
+    {
+      "key": "input1",
+      "type": "string",
+      "value": "",
+      "title": "First Input"
+    },
+    {
+      "key": "input2",
+      "type": "string",
+      "value": "",
+      "title": "Second Input"
+    }
+  ],
+  "button": {
+    "color": "primary",
+    "target": "http://",
+    "method": "get",
+    "title": "Send Request"
+  }
+}
+
+```
 
 ### Example Table Data Response
 

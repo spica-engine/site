@@ -1,6 +1,6 @@
 # Function
 
-Functions are an event-driven execution context for your spica. Simply, you can attach an event to your function from other modules and services. Your function will be triggered _when the event occurs_.
+Functions are an event-driven execution context for your spica. Simply, you can attach an event to your function from other modules and services. Your function will be triggered _when the event occurs_. In addition, you can connect your Spica to Github and version control your functions. 
 
 Within a function, you can do almost everything you want to do.
 

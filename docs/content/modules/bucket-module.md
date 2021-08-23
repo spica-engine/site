@@ -114,7 +114,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Get
+## Data Get
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -132,17 +132,14 @@ Note: Additionally, `Bucket.data.get()` function accepts a third optional `optio
   headers: {
     <HTTP HEADER KEY>: "<VALUE>"
   },
-  queryParams: {
-    <SPICA QUERY PARAMS>: "<VALUE>",
-    filter: "<Access Control Rules>"
-  }
+  queryParams: "<Query Parameters>"
 }
 ```
 
-For more information about `Access Control Rules`, please visit [this page](https://spicaengine.com/docs/additionals/access-control-rules).
+For more information about `Query Parameters`, please visit [this page](https://spicaengine.com/docs/additionals/query-params).
 
 
-## Bucket Data Get with Parameters
+## Data Get with Parameters
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -165,14 +162,14 @@ Note: `Bucket.data.getAll()` function accepts a third optional `options` paramet
   },
   queryParams: {
     <SPICA QUERY PARAMS>: "<VALUE>",
-    filter: "<Access Control Rules>"
+    filter: "<Query Parameters>"
   }
 }
 ```
 
-For more information about Access Control Rules, please visit [this page](https://spicaengine.com/docs/additionals/access-control-rules).
+For more information about Query Parameters, please visit [this page](https://spicaengine.com/docs/additionals/query-params).
 
-## Bucket Data Insert
+## Data Insert
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -189,7 +186,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Update
+## Data Update
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -209,7 +206,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Patch
+## Data Patch
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -226,7 +223,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Remove
+## Data Remove
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -237,7 +234,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Realtime Data Get
+## Realtime Data Get
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -248,7 +245,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Realtime Data Get All
+## Realtime Data Get All
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -264,11 +261,11 @@ Note: Additionally, `Bucket.data.realtime.getAll()` function accepts a second op
 ```json
 {
   <SPICA QUERY PARAMS>: "<VALUE>",
-  filter: "<Access Control Rules>"
+  filter: "<Query Parameters>"
 }
 ```
 
-## Bucket Realtime Data Insert
+## Realtime Data Insert
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -287,7 +284,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Realtime Data Replace
+## Realtime Data Replace
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -307,7 +304,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Realtime Data Patch
+## Realtime Data Patch
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -326,7 +323,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Realtime Data Remove
+## Realtime Data Remove
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
