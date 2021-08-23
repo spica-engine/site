@@ -311,13 +311,13 @@ export default function(changes) {
 }
 ```
 
-#### Difference Between Bucket After Events and Database Events
+#### Difference Between Bucket Events and Database Events
 
-Database events trigger when a change happens on the Database layer, but Bucket After Events listens to the API operations and triggers when the API processes the request.
+Database events trigger when a change happens on the Database layer, but Bucket Events listens to the API operations and triggers when the API processes the request.
 
-If you happen to change data directly from the database (e.g. by using the `@spica-devkit/database`), only the Database events are triggers. But on either change via Spica Client or Bucket APIs, both **Bucket After Events** and **Database Events** trigger.
+If you happen to change data directly from the database (e.g. by using the `@spica-devkit/database`), only the Database events are triggers. But on either change via Spica Client or Bucket APIs, both **Bucket Events** and **Database Events** trigger.
 
-For example, let's assume we want to send a notification to a 3rd party API when a Spica User changes data on Spica, but also we have a function that changes a bucket data internally by using `@spica-devkit/database`. It's correct to use **Bucket After Events** for the 3rd API communication instead of the Database Events in this case.
+For example, let's assume we want to send a notification to a 3rd party API when a Spica User changes data on Spica, but also we have a function that changes a bucket data internally by using `@spica-devkit/database`. It's correct to use **Bucket Events** for the 3rd API communication instead of the Database Events in this case.
 
 ### System
 
