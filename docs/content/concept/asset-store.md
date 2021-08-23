@@ -120,3 +120,33 @@ valueFrom:
   resourceFieldRef:
     schemaName: bucket-asset 
 ```
+
+## Manually Applying the Asset
+
+Instead of directly applying the asset from asset store, you can also apply the asset manually using [Spica CLI](https://spicaengine.com/docs/concept/cli). Below, we show how to apply the bucket asset.
+
+First, make sure that you have the Spica CLI installed on your machine.
+
+Then, create a new Spica context on your machine using the following command:
+
+```bash
+$ spica context set --name <UNIQUE_NAME> --apikey <API_KEY> --url <API_URL>
+```
+
+Switch to the context you just created:
+
+```bash
+$ spica context switch <UNIQUE_NAME>
+```
+
+And apply for that context the bucket asset:
+
+```bash
+$ spica apply -f <ASSET_YAML_PATH>
+```
+
+If you want to delete the asset, you can use the following command:
+
+```bash
+$ spica delete -f <ASSET_YAML_PATH>
+```
