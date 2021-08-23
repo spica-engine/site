@@ -6,7 +6,7 @@
 
 Users are not willing to wait more than 500 milliseconds these days. Because of the time limit, your custom APIs should respond as possible as fast. To increase your response time, you can use the `batching` feature in cloud functions. To take the best performance from the cloud functions, you can follow the steps below;
 
-1. Enable batching with the optimum `batching deadline` and `batching count` settings
+1. Enable batching with the optimum `batching deadline` setting
 2. Change every `@spica-devkit/bucket` operations to `@spica-devkit/database`
 3. Import common libraries before the function definitions. Example code below;
 
@@ -52,7 +52,7 @@ After these steps, the response time will be reduced by 90%. As an example, it w
 
 ## Worker Counts and Batching
 
-There are worker count limitations in managed Spica packages. If you enable batching, you should set the `batching deadline` and `batching count` very carefully. 
+There are worker count limitations in managed Spica packages. If you enable batching, you should set the `batching deadline` very carefully. 
 
 * Let's say you have 5 batching workers and you have 5 workers limitation, the next function execution will wait until one of the workers completes the process and kills itself. 
 
