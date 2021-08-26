@@ -36,10 +36,11 @@ export default async function() {
 
 ## Verify Token
 
+Verify token is a special kind of method. If you use `Identity.initialize()`, `verifyToken` verifies the token on the initialized API, otherwise the second argument `baseUrl` is mandatory. It will check the given JWT and return the identity of the JWT.
+
 ```typescript
 import * as Identity from "@spica-devkit/identity";
 export default async function() {
-  Identity.initialize({apikey: "<API KEY>", publicUrl: "<YOUR API URL>"});
   const tokenPayload = await Identity.verifyToken(<JWT_TOKEN>, "<API_URL>");
   console.log(tokenPayload);
 }

@@ -3,7 +3,7 @@ package(default_visibility = ["//visibility:public"])
 load("//tools/dgeni:index.bzl", "docs")
 
 docs(
-    name = "modules",
+    name = "libraries",
     # buildifier: leave-alone
     srcs = [
         "bucket-module.md",

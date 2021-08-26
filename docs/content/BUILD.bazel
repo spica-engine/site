@@ -9,7 +9,7 @@ docs(
         "//docs/content/start",
         "//docs/content/concept",
         "//docs/content/additionals",
-        "//docs/content/modules",
+        "//docs/content/libraries",
         "//docs/content/guide",
         "//docs/content/pro",
         # "//docs/content/api",
