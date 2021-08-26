@@ -12,15 +12,15 @@ Help us keep Spica open and inclusive. Please read and follow our [Code of Condu
 
 ## Got a Question or Problem?
 
-Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [Stack Overflow](https://stackoverflow.com/questions/tagged/spica) where the questions should be tagged with tag `spica`.
+Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [Stack Overflow](https://stackoverflow.com/questions/tagged/spica) where the questions should be tagged with the tag `spica`.
 
 Stack Overflow is a much better place to ask questions since:
 
 - there are thousands of people willing to help on Stack Overflow
-- questions and answers stay available for public viewing so your question / answer might help someone else
+- questions and answers stay available for public viewing so your question/answer might help someone else
 - Stack Overflow's voting system assures that the best answers are prominently visible.
 
-To save your and our time, we will systematically close all issues that are requests for general support and redirect people to Stack Overflow.
+To save your time and our time, we will systematically close all issues that are requests for general support and redirect people to Stack Overflow.
 
 If you would like to chat about the question in real-time, you can reach out via [our slack channel][slack].
 
@@ -37,8 +37,7 @@ Repository. If you would like to _implement_ a new feature, please submit an iss
 a proposal for your work first, to be sure that we can use it.
 Please consider what kind of change it is:
 
-- For a **Major Feature**, first open an issue and outline your proposal so that it can be
-  discussed. This will also allow us to better coordinate our efforts, prevent duplication of work,
+- For a **Major Feature**, first, open an issue and outline your proposal so that it can be discussed. This will also allow us to better coordinate our efforts, prevent duplication of work,
   and help you to craft the change so that it is successfully accepted into the project.
 - **Small Features** can be crafted and directly [submitted as a Pull Request](#submit-pr).
 
@@ -48,13 +47,13 @@ Please consider what kind of change it is:
 
 Before you submit an issue, please search the issue tracker, maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
 
-We want to fix all the issues as soon as possible, but before fixing a bug we need to reproduce and confirm it. In order to reproduce bugs, we will systematically ask you to provide a minimal reproduction. Having a minimal reproducible scenario gives us a wealth of important information without going back & forth to you with additional questions.
+We want to fix all the issues as soon as possible, but before fixing a bug we need to reproduce and confirm it. To reproduce bugs, we will systematically ask you to provide minimal reproduction. Having a minimal reproducible scenario gives us a wealth of important information without going back & forth to you with additional questions.
 
 A minimal reproduction allows us to quickly confirm a bug (or point out a coding problem) as well as confirm that we are fixing the right problem.
 
-We will be insisting on a minimal reproduction scenario in order to save maintainers time and ultimately be able to fix more bugs. Interestingly, from our experience users often find coding problems themselves while preparing a minimal reproduction. We understand that sometimes it might be hard to extract essential bits of code from a larger code-base but we really need to isolate the problem before we can fix it.
+We will be insisting on a minimal reproduction scenario to save maintainers time and ultimately be able to fix more bugs. Interestingly, from our experience users often find coding problems themselves while preparing a minimal reproduction. We understand that sometimes it might be hard to extract essential bits of code from a larger code-base but we need to isolate the problem before we can fix it.
 
-Unfortunately, we are not able to investigate / fix bugs without a minimal reproduction, so if we don't hear back from you we are going to close an issue that doesn't have enough info to be reproduced.
+Unfortunately, we are not able to investigate/fix bugs without minimal reproduction, so if we don't hear back from you we are going to close an issue that doesn't have enough info to be reproduced.
 
 You can file new issues by selecting from our [new issue templates](https://github.com/spica-engine/spica/issues/new/choose) and filling out the issue template.
 
@@ -65,7 +64,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 1. Search [GitHub](https://github.com/spica/spica-engine/pulls) for an open or closed PR
    that relates to your submission. You don't want to duplicate effort.
 1. Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add.
-   Discussing the design up front helps to ensure that we're ready to accept your work.
+   Discussing the design upfront helps to ensure that we're ready to accept your work.
 1. Please read our [Contributor License Agreement (CLA)](#cla) before sending PRs.
 1. Fork the spica-engine/spica repo.
 1. Make your changes in a new git branch:
@@ -78,14 +77,13 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 1. Follow our [Coding Rules](#rules).
 1. Run the full Spica test suite and ensure that all tests pass.
 1. Commit your changes using a descriptive commit message that follows our
-   [commit message conventions](#commit). Adherence to these conventions
-   is necessary because release notes are automatically generated from these messages.
+   [commit message conventions](#commit). Adherence to these conventions is necessary because release notes are automatically generated from these messages.
 
    ```shell
    git commit -a
    ```
 
-   Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
+   Note: the optional commit `-a` command-line option will automatically "add" and "rm" edited files.
 
 1. Push your branch to GitHub:
 
@@ -165,7 +163,7 @@ format that includes a **type**, a **scope** and a **subject**:
 
 The **header** is mandatory and the **scope** of the header is optional.
 
-Any line of the commit message cannot be longer 100 characters! This allows the message to be easier
+Any line of the commit message cannot be longer than 100 characters! This allows the message to be easier
 to read on GitHub as well as in various git tools.
 
 The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
@@ -177,14 +175,14 @@ docs(changelog): update changelog to beta.5
 ```
 
 ```
-fix(release): need to depend on latest rxjs and zone.js
+fix(release): need to depend on the latest rxjs and zone.js
 
 The version in our package.json gets copied to the one we publish, and users need the latest of these.
 ```
 
 ### Revert
 
-If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body, it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
 ### Type
 

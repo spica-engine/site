@@ -2,13 +2,13 @@
 
 ## Installation
 
-This tutorial helps you to install Spica to different environments. We provide a few ways to install, so you can choose which one of them suits you.
+This tutorial helps you to install Spica in different environments. We provide a few ways to install, so you can choose which one of them suits you.
 
 ### Using Spica CLI
 
 Spica has a command-line interface for quick installation. To use it, you must have [Docker](https://www.docker.com/) and [NodeJs](https://nodejs.org) installed on your development environment.
 
-> IMPORTANT: There has to be at least one docker machine is up and running on your environment. To create a docker machine enter the following command to your terminal:
+> IMPORTANT: There has to be at least one docker machine that is up and running in your environment. To create a docker machine enter the following command to your terminal:
 >
 > ```shell
 > $ docker-machine create <machine name>
@@ -18,32 +18,32 @@ Spica has a command-line interface for quick installation. To use it, you must h
 Install CLI using the `npm` package manager:
 
 ```sh
-$ npm install @spica/cli -g
+$ npm install @spica/cli -g
 ```
 
 To create and serve a new Spica instance on your computer, simply run:
 
 ```sh
-$ spica serve <docker machine name>
+$ spica serve <docker machine name>
 ```
 
-By default, Spica is served under 4500 port. It can be changed by using `--port` parameter
+By default, Spica is served under 4500 port. It can be changed by using the `--port` parameter
 
 ### Using Kubernetes
 
 - Install kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-- After you'll need a kubernetes environment it can be either a local or a cloud kubernetes environment.
+- After you'll need a Kubernetes environment it can be either a local or a cloud Kubernetes environment.
 - For local Kubernetes, you can use minikube: https://kubernetes.io/docs/tasks/tools/install-minikube/
 - For AWS, you can create an EKS cluster: https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html
 - For GCP, you can create a GKE cluster: https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster
 - For Azure, you can create an AKS cluster: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
-- Ensure kubectl connected to the kubernetes cluster by running `kubectl get nodes` command.
-- The Cluster must have Nginx ingress controller enabled. You can follow https://kubernetes.github.io/ingress-nginx/deploy/ to install Nginx ingress on the cluster.
+- Ensure kubectl is connected to the Kubernetes cluster by running the `kubectl get nodes` command.
+- The Cluster must have an Nginx ingress controller enabled. You can follow https://kubernetes.github.io/ingress-nginx/deploy/ to install Nginx ingress on the cluster.
 - Just apply `kubectl apply -f https://raw.githubusercontent.com/spica-engine/spica/master/deployment.yaml`
 
 ### Using Docker
 
-- Install docker on your environment and ensure that you have installed docker correctly by running "`docker ps`" command.
+- Install docker on your environment and ensure that you have installed docker correctly by running the "`docker ps`" command.
 - For macOS: https://docs.docker.com/docker-for-mac/
 - For Windows: https://docs.docker.com/docker-for-windows/install/
 - For other platforms checkout docker webpage: https://docs.docker.com
@@ -61,7 +61,7 @@ docker run --name mongo-2 --network spica -d mongo:4.2 --replSet "rs0" --bind_ip
 docker run --name mongo-3 --network spica -d mongo:4.2 --replSet "rs0" --bind_ip_all
 ```
 
-- Ensure that all three of replica set members are up and running.
+- Ensure that all three replica set members are up and running.
 
 ```sh
 # Run the command below
@@ -86,7 +86,7 @@ docker exec -it mongo-1 mongo admin --eval 'rs.initiate({
 })'
 ```
 
-- Additionally, if you want to keep your files on every container update, you need to mount a docker volume to your **`api`** container and change `PERSISTENT_PATH` environment variable. For more info checkout: https://docs.docker.com/storage/volumes/
+- Additionally, if you want to keep your files on every container update, you need to mount a docker volume to your **`api`** container and change the `PERSISTENT_PATH` environment variable. For more info check out: https://docs.docker.com/storage/volumes/
 - Setup spica
 
 ```sh
@@ -103,7 +103,7 @@ docker run
     -e DEFAULT_PASSWORD=spica
     # API will use this secret to sign login tokens.
     -e SECRET="$2b$10$shOzfYpDCy.RMgsVlwdQeONKGGzaBTfTQAjmXQNpMp4aKlLXrfZ/C"
-    # This secret is important to keep your Spica secure.
+    # This secret is important to keep your Spica secure.
     # Changing this secret to something different is strongly advised.
     -e PUBLIC_HOST=http://localhost:4400 # Publicly accesible url of the API.
     -e PERSISTENT_PATH=/tmp # The path that the storage files will be kept at.
@@ -114,12 +114,12 @@ docker run
     --name spica
     --network spica
     -e BASE_URL="/"
-    -e API_URL="http://localhost:4400" # Publicly accesible url of the API for connection. In this case it is http://localhost:4400
+    -e API_URL="http://localhost:4400" # Publicly accesible url of the API for connection. In this case it is http://localhost:4400
     -p 4500:80
     -d spicaengine/spica
 ```
 
-- Ensure you have setup everything correctly
+- Ensure you have set up everything correctly
 
 ```sh
 # Run
@@ -144,11 +144,11 @@ a973f9598ba2        spicaengine/spica           "nginx -g 'daemon of…"   4 sec
 Navigate to **Developer** -> **Bucket** (or [http://localhost:4500/spica/buckets](http://localhost:4500/spica)) in the left-hand menu.
 
 - Click the "+" icon on the top right toolbar.
-- Enter "Users" to "name" field and fill the "Description" field however you want
+- Enter "Users" to the "name" field and fill the "Description" field however you want
 - Delete all "Properties" by clicking the "trash" icon on each property.
-- Add the following properties: - Add a "name" field and set its type to "String", - Add a "email" field and set its type to "String", - Add a "birthday" field and set its type to "Date"
-- Click the "cog" icon on "name" field and check the following options: - Primary field (which marks this field as primary) - Require (which marks this field a mandatory field to create an entry)
-- Click the "cog" icon on "email" field and check the following options: - Require (which marks this field a mandatory field to create an entry)
+- Add the following properties: - Add a "name" field and set its type to "String", - Add an "email" field and set its type to "String", - Add a "birthday" field and set its type to "Date"
+- Click the "cog" icon on the "name" field and check the following options: - Primary field (which marks this field as primary) - Require (which marks this field a mandatory field to create an entry)
+- Click the "cog" icon on the "email" field and check the following options: - Require (which marks this field as a mandatory field to create an entry)
 - Move on to the "View" section of the form and arrange your entry form view by drag and drop
 - Click **Save** and wait for the page refresh.
 
@@ -156,10 +156,10 @@ Navigate to **Developer** -> **Bucket** (or [http://localhost:4500/spica/buckets
 
 Navigate to **Content** -> **Users**, in the left-hand menu.
 
-- Click "+" icon on the top right toolbar.
+- Click the "+" icon on the top right toolbar.
 - Type "John Doe" in the **Name** field.
 - Type "john@doe.com" in the **Email** field.
-- Click on **Birthday** field and select a date.
+- Click on the **Birthday** field and select a date.
 - Click **Save**
 
 You will see a user named John Doe listed in the entries.
