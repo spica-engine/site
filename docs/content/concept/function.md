@@ -16,7 +16,7 @@ See the following table for common `functions` use cases:
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data processing | Listen and respond to storage events when a file is created, changed, or removed. Process images, perform video transcoding, validate and transform data, and invoke any service on the internet from your functions. |
 | Webhooks        | With a simple HTTP call, respond to events originating from 3rd party systems like GitHub, Slack, Stripe.                                                                                                             |
-| APIs            | Compose applications from lightweight, quick, and flexible.                                                                                                                                                            |
+| APIs            | Compose applications from lightweight, quick, and flexible.                                                                                                                                                           |
 
 ## Events and triggers
 
@@ -81,6 +81,12 @@ Currently, these methods are valid for use;
 - `OPTIONS`
 
 Also, you can use the `ANY` method that covers all methods above which means your function will be executed regardless of the HTTP method of request that bein received.
+
+The following content types are supported by the HTTP trigger:
+
+- `application/x-www-form-urlencoded`
+- `multipart/form-data` 
+- `application/json`
 
 #### Path
 
@@ -169,8 +175,8 @@ You need to parse the payload to be able to use it in a function.
 | Raw    | application/bson                  | Yes       | Supported by default.                                                                     |
 | Text   | application/x-www-form-urlencoded | No        | Will be supported soon. See issue [#28](https://github.com/spica-engine/spica/issues/28). |
 | Raw    | multipart/form-data               | No        | Will be supported soon. See issue [#28](https://github.com/spica-engine/spica/issues/28). |
-| Text   | application/xml                   | No        | You need to install an appropriate module to handle the request payload.                      |
-| Text   | application/yaml                  | No        | You need to install an appropriate module to handle the request payload.                      |
+| Text   | application/xml                   | No        | You need to install an appropriate module to handle the request payload.                  |
+| Text   | application/yaml                  | No        | You need to install an appropriate module to handle the request payload.                  |
 
 ### Database
 

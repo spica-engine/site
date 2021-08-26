@@ -207,6 +207,31 @@ Please note, each component accepts takes a different kind of JSON structure.
 
 ```
 
+Inputs array supports all [BucketProperty](https://spicaengine.com/docs/additionals/bucket-module-types#bucketproperty) type fields excluding the `relation` type. 
+
+Also, you can add file input to the card like the following:
+
+```json
+...
+"inputs": [
+  ...
+  {
+    "key": "file",
+    "type": "file",
+    "value": null,
+    "title": "Select a file",
+  }
+  ...
+],
+"button": {
+    "target": "http://",
+    "method": "post",
+    "title": "Submit",
+    "enctype": "multipart/form-data", //or "application/x-www-form-urlencoded"
+},
+...
+```
+
 ### Example Table Data Response
 
 ```json
