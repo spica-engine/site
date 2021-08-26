@@ -1,0 +1,52 @@
+{
+  "sections": [
+    {
+      "text": "Usage Limits",
+      "rows": [
+        {
+          "name": "backup",
+          "type": "bool",
+          "text": "Number of Backup"
+        },
+        {
+          "name": "request-month",
+          "type": "text",
+          "text": "Number of Request Per Month"
+        },
+        {
+          "name": "storage",
+          "type": "text",
+          "text": "Storage Limit"
+        }
+      ]
+    }
+  ],
+
+  "data": {
+    "shared": [
+      {
+        "name": "Starter",
+        "description": "For small projects and websites",
+        "price": "Free",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "10k",
+          "backup": true,
+          "storage": "10GB"
+        }
+      },
+      {
+        "name": "Professional",
+        "description": "For startups and mobile apps",
+        "price": "$49",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "10k",
+          "backup": true,
+          "storage": "20GB"
+        }
+      }
+    ],
+    "dedicated": []
+  }
+}
