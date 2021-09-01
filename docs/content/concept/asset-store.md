@@ -1,6 +1,6 @@
 # Asset Workflow
 
-An asset is any item that you use in your Spica project. Assets can represent a Passport,  a Bucket, a Function, or a bundle of them.
+An asset is any item that you use in your Spica project. Assets can represent a Passport, a Bucket, a Function, or a bundle of them.
 
 To create a new asset, you need to create a new file called `asset.yaml` in an empty folder.
 
@@ -12,7 +12,6 @@ Every piece of asset starts with the following required variables:
 | `kind`       | Specifies the asset's type.                   |
 | `metadata`   | Specifies the asset's name and other metadata |
 | `spec`       | Specifies the asset's properties.             |
-
 
 ## Bucket Asset
 
@@ -69,6 +68,7 @@ spec:
     - name: "@spica-devkit/bucket"
       version: latest
 ```
+
 Function code of an asset lives in a folder called `function` in the asset's folder. You have to create a file called `triggers.js` in this folder and add the code to it.
 
 ### Trigger Kind
@@ -113,14 +113,38 @@ As the assets are created on the server, you can get the ID of the asset by usin
 <kind value of the asset>+Name: <metadata.name in the asset>
 ```
 
-Following example returns the ID of the Bucket asset: 
+Following example returns the ID of the Bucket asset:
 
 ```yaml
 valueFrom:
   resourceFieldRef:
-    schemaName: bucket-asset 
+    schemaName: bucket-asset
 ```
 
 ## Manually Applying the Asset
 
-For manually applying the asset, visit the [Spica CLI Docs](https://spicaengine.com/docs/concept/cli).
+Instead of directly applying the asset from asset store, you can also apply the asset manually using `Spica CLI`. If you haven't installed it yet, see the [installation](https://spicaengine.com/docs/start/local-development#installation)part. Below, we show how to apply the bucket asset.
+
+Create a new Spica context on your machine using the following command:
+
+```bash
+$ spica context set --name <UNIQUE_NAME> --apikey <API_KEY> --url <API_URL>
+```
+
+Switch to the context you just created:
+
+```bash
+$ spica context switch <UNIQUE_NAME>
+```
+
+And apply for that context the bucket asset:
+
+```bash
+$ spica apply -f <ASSET_YAML_PATH>
+```
+
+If you want to delete the asset, you can use the following command:
+
+```bash
+$ spica delete -f <ASSET_YAML_PATH>
+```

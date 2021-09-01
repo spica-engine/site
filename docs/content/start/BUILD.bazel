@@ -6,8 +6,9 @@ docs(
     name = "start",
     # buildifier: leave-alone
     srcs = [
-        "index.md",
+        # "index.md",
         "getting-started.md",
         "where-to-start.md",
+        "installation.md",
     ],
 )
