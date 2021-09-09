@@ -1,6 +1,6 @@
 # Function
 
-Functions are an event-driven execution context for your spica. Simply, you can attach an event to your function from other modules and services. Your function will be triggered _when the event occurs_. In addition, you can connect your Spica to Github and version control your functions. 
+Functions are an event-driven execution context for your spica. Simply, you can attach an event to your function from other modules and services. Your function will be triggered _when the event occurs_. In addition, you can connect your Spica to Github and version control your functions.
 
 Within a function, you can do almost everything you want to do.
 
@@ -24,7 +24,6 @@ There are events in the Spica. As an example, there is an event when there is a 
 
 If you attach a trigger to your function, your function will be executed when the event is raised.
 
-
 ![Example Triggers](assets/images/docs/function/triggers.png)
 
 Currently, the Functions supports following triggers:
@@ -43,10 +42,10 @@ Event trigger will pass the data as parameters to the function when the event is
 For example a function which has http trigger will look like this:
 
 ```typescript
-export default function(request, response) {
+export default function (request, response) {
   // Send the response
   response.send({
-    message: "Spica is awesome!"
+    message: "Spica is awesome!",
   });
 }
 ```
@@ -85,7 +84,7 @@ Also, you can use the `ANY` method that covers all methods above which means you
 The following content types are supported by the HTTP trigger:
 
 - `application/x-www-form-urlencoded`
-- `multipart/form-data` 
+- `multipart/form-data`
 - `application/json`
 
 #### Path
@@ -120,12 +119,12 @@ Example:
 For **`/books/:bookId`** path, you can access the **bookId** parameter from **`request.params`** object.
 
 ```typescript
-export default function(request, response) {
+export default function (request, response) {
   // Print the bookId parameter
   console.log(request.params.bookId);
   // Send the response
   response.send({
-    bookId: request.params.bookId
+    bookId: request.params.bookId,
   });
 }
 ```
@@ -145,7 +144,7 @@ Usually, every request contains a payload (body) along with the request. It can 
 Example function;
 
 ```typescript
-export default function(request, response) {
+export default function (request, response) {
   // A entry will appear in function logs.
   console.dir(request.body);
   // Send body as response right away
@@ -169,14 +168,14 @@ You need to parse the payload to be able to use it in a function.
 
 "Function" parses the following payload types by default:
 
-| Origin | Content-Type                      | Supported | Description                                                                               |
-| ------ | --------------------------------- | --------- | ----------------------------------------------------------------------------------------- |
-| Text   | application/json                  | Yes       | Supported by default.                                                                     |
-| Raw    | application/bson                  | Yes       | Supported by default.                                                                     |
-| Text   | application/x-www-form-urlencoded | No        | Will be supported soon. See issue [#28](https://github.com/spica-engine/spica/issues/28). |
-| Raw    | multipart/form-data               | No        | Will be supported soon. See issue [#28](https://github.com/spica-engine/spica/issues/28). |
-| Text   | application/xml                   | No        | You need to install an appropriate module to handle the request payload.                  |
-| Text   | application/yaml                  | No        | You need to install an appropriate module to handle the request payload.                  |
+| Origin | Content-Type                      | Supported | Description                                                              |
+| ------ | --------------------------------- | --------- | ------------------------------------------------------------------------ |
+| Text   | application/json                  | Yes       | Supported by default.                                                    |
+| Raw    | application/bson                  | Yes       | Supported by default.                                                    |
+| Text   | application/x-www-form-urlencoded | Yes       | Check the `request.body` to read the content.                            |
+| Raw    | multipart/form-data               | Yes       | Check the `request.body` to read the content.                            |
+| Text   | application/xml                   | No        | You need to install an appropriate module to handle the request payload. |
+| Text   | application/yaml                  | No        | You need to install an appropriate module to handle the request payload. |
 
 ### Database
 
@@ -193,7 +192,7 @@ To be able to create a function that is triggered by a database event, you need 
 A basic database function looks like this:
 
 ```typescript
-export default function(changes) {
+export default function (changes) {
   console.log(changes);
   // Business logic here
 }
@@ -234,7 +233,7 @@ To create a scheduled function you need a CRON time expression and Time-zone bec
 For example, if you want to run your function at every minute, you need a cron time expression like this [\* \* \* \* \*](https://crontab.guru/#*_*_*_*_*).
 
 ```typescript
-export default function() {
+export default function () {
   // Your business logic
 }
 ```
@@ -277,6 +276,7 @@ All required fields for a bucket trigger are listed below;
 
 - **Bucket:** Bucket ID of the desired bucket
 - **Event Type:** Type of the event that happens in the collection.
+
 #### Bucket Events
 
 Bucket events triggers after any of the following Bucket events happen:
@@ -311,7 +311,7 @@ Example change object:
 Example function:
 
 ```javascript
-export default function(changes) {
+export default function (changes) {
   console.log(changes);
   // Business logic here
 }
@@ -330,7 +330,7 @@ For example, let's assume we want to send a notification to a 3rd party API when
 System trigger includes system-related event data and invokes a function whenever the chosen event happens. The system trigger is the best choice for using the dashboard module, configuring the instance, or setting up a starting state for your data. `READY` event will be triggered when a server restarts and is ready to use. For the current version, the system trigger supports the `READY` event only.
 
 ```typescript
-export default function() {
+export default function () {
   console.log("Spica is ready");
 }
 ```
@@ -342,7 +342,7 @@ You can invoke a function in real-time from your client application. It is a gre
 As an example, if you are making a game and run a real-time server-side logic that will communicate with the client application such as real-time point calculating, you can calculate the score and deliver the result in real-time using the firehose trigger.
 
 ```typescript
-export default function({socket, pool} ,message) {
+export default function ({ socket, pool }, message) {
   console.log(message.name); // The event name that has been triggered
   console.log(message.data); // Use this field for passing data from client to server
 
@@ -350,16 +350,19 @@ export default function({socket, pool} ,message) {
 
   if (isAuthorized) {
     // Write back to incoming socket that authorization has been successful.
-    socket.send("authorization", {state: true});
+    socket.send("authorization", { state: true });
 
     // Announce the new connection to firehose pool (aka all connected sockets)
     pool.send("connection", {
       id: socket.id,
-      ip_address: socket.remoteAddress
+      ip_address: socket.remoteAddress,
     });
   } else {
     // Write back to incoming socket that authorization has been failed.
-    socket.send("authorization", {state: false, error: "Authorization has failed."});
+    socket.send("authorization", {
+      state: false,
+      error: "Authorization has failed.",
+    });
     // Close the incoming socket in order to end the connection and remove it from the pool
     socket.close();
   }
@@ -371,7 +374,7 @@ export default function({socket, pool} ,message) {
 You can define custom environment variables for your functions. If your team is multi-disciplined, you may need some roles to change just function variables. For this situation, you can define environment variables that will be passed to function as a parameter. You can see an example of how the environment variable works below:
 
 ```typescript
-export default function() {
+export default function () {
   return process.env.exampleVariable;
 }
 ```
@@ -394,7 +397,7 @@ A function code can have statements like `console.log`, `console.error`, when th
 
 ## Batching
 
-Before explaining batching, we explain how the cloud functions work. There are nodeJS workers behind the cloud functions in your Spica instance. Each function will be executed in a different worker as long as batching is disabled. 
+Before explaining batching, we explain how the cloud functions work. There are nodeJS workers behind the cloud functions in your Spica instance. Each function will be executed in a different worker as long as batching is disabled.
 
 Batching feature designed to handle peak cloud function usages in Spica server. You will see a huge difference in response time from cloud functions when you enable batching because the function will be assigned to the same worker if it meets the conditions. There are two conditions:
 
@@ -402,4 +405,4 @@ Batching feature designed to handle peak cloud function usages in Spica server. 
 
 2. batching count: indicates how many executions will be handled by a worker. As an example, if you set batching count to 10, the worker will handle the next 10 execution. After that, the worker will close itself.
 
-Enabling batching will make workers alive for multiple executions. This means executions will share the memory with the worker. You should keep this in mind while developing your custom logic. 
+Enabling batching will make workers alive for multiple executions. This means executions will share the memory with the worker. You should keep this in mind while developing your custom logic.

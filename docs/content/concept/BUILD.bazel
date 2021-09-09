@@ -6,7 +6,7 @@ docs(
     name = "concept",
     # buildifier: leave-alone
     srcs = [
-        "index.md",
+        # "index.md",
         "bucket.md",
         "passport.md",
         "function.md",
@@ -15,8 +15,8 @@ docs(
         "user-activities.md",
         "webhook.md",
         "l10n.md",
-        "cli.md",
-        "spica-devkit.md",
+        # "cli.md",
+        # "spica-devkit.md",
         "asset-store.md",
     ],
 )

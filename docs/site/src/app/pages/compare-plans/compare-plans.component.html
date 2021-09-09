@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<home-section title="Compare Plans" description=""> </home-section>
+
+<main>
+  <div class="container">
+    <ng-container *ngIf="comparePlans">
+      <div class="difference__table">
+        <div class="difference__row">
+          <div class="difference__cell difference__cell--feature"></div>
+          <div
+            class="difference__cell difference__cell--head"
+            *ngFor="let plan of comparePlans.data.shared"
+          >
+            <h2>{{ plan.name }}</h2>
+            <h1>{{ plan.price }}</h1>
+            <p>{{ plan.description }}</p>
+          </div>
+        </div>
+        <ng-container *ngFor="let section of comparePlans.sections">
+          <div class="difference__section">
+            {{ section.text }}
+          </div>
+          <div class="difference__row" *ngFor="let row of section.rows">
+            <div class="difference__cell difference__cell--feature">
+              {{ row.text }}
+            </div>
+            <div
+              class="difference__cell"
+              *ngFor="let data of comparePlans.data.shared"
+            >
+              <span
+                class="difference__tick"
+                *ngIf="row.type == 'bool' && data.features[row.name]"
+              ></span>
+              <strong *ngIf="row.type == 'text'">{{
+                data.features[row.name]
+              }}</strong>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</main>
+
+<app-footer></app-footer>

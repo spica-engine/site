@@ -46,6 +46,7 @@ import {FairusagePolicyComponent} from "./pages/fairusage-policy/fairusage-polic
 import {CalendarComponent} from "./pages/calendar/calendar.component";
 import {DocTryItComponent} from "./components/doc-try-it/doc-try-it.component";
 import {FormsModule} from "@angular/forms";
+import { ComparePlansComponent } from './pages/compare-plans/compare-plans.component';
 
 @NgModule({
   imports: [
@@ -97,7 +98,8 @@ import {FormsModule} from "@angular/forms";
     LimitPolicyComponent,
     FairusagePolicyComponent,
     CalendarComponent,
-    DocTryItComponent
+    DocTryItComponent,
+    ComparePlansComponent
   ],
   bootstrap: [AppComponent]
 })
