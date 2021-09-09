@@ -8,7 +8,8 @@ docs(
     data = [
         "//docs/content/start",
         "//docs/content/concept",
-        "//docs/content/modules",
+        "//docs/content/additionals",
+        "//docs/content/libraries",
         "//docs/content/guide",
         "//docs/content/pro",
         # "//docs/content/api",

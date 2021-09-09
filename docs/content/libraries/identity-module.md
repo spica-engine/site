@@ -8,7 +8,7 @@
 
 ##### Initializing Identity Module
 
-To initialize a identity, simply use `initialize` function exported from `@spica-devkit/identity` module. Specify the authorization (APIKEY or IDENTITY and optional API url. 
+To initialize an identity, simply use the `initialize` function exported from the `@spica-devkit/identity` module. Specify the authorization (APIKEY or IDENTITY and optional API URL. 
 
 ```typescript
 import * as Identity from "@spica-devkit/identity";
@@ -22,7 +22,7 @@ Identity.initialize({identity: "<USER TOKEN>", publicUrl: "<YOUR API URL>"});
 
 ## Login Endpoint
 
-Login endpoint will check the given identity and password as paremeters. If there is a matched identity with the given parameters, login end point will return a newly created JWT. You can also set JWT expire date in login endpoint. You can see the example code below;
+Login endpoint will check the given identity and password as parameters. If there is a matched identity with the given parameters, the login endpoint will return a newly created JWT. You can also set JWT expire date in the login endpoint. You can see the example code below;
 
 ```typescript
 import * as Identity from "@spica-devkit/identity";
@@ -34,9 +34,21 @@ export default async function() {
 }
 ```
 
+## Verify Token
+
+Verify token is a special kind of method. If you use `Identity.initialize()`, `verifyToken` verifies the token on the initialized API, otherwise the second argument `baseUrl` is mandatory. It will check the given JWT and return the identity of the JWT.
+
+```typescript
+import * as Identity from "@spica-devkit/identity";
+export default async function() {
+  const tokenPayload = await Identity.verifyToken(<JWT_TOKEN>, "<API_URL>");
+  console.log(tokenPayload);
+}
+```
+
 ### Operations
 
-Here is some fundamental examples;
+Here are some fundamental examples;
 
 ## Get
 

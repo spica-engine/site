@@ -17,5 +17,6 @@ docs(
         "l10n.md",
         "cli.md",
         "spica-devkit.md",
+        "asset-store.md",
     ],
 )

@@ -1,6 +1,6 @@
 # Function
 
-Functions are an event-driven execution context for your spica. Simply, you can attach an event to your function from other modules and services. Your function will be triggered _when the event occurs_.
+Functions are an event-driven execution context for your spica. Simply, you can attach an event to your function from other modules and services. Your function will be triggered _when the event occurs_. In addition, you can connect your Spica to Github and version control your functions. 
 
 Within a function, you can do almost everything you want to do.
 
@@ -8,7 +8,7 @@ Within a function, you can do almost everything you want to do.
 
 ## Use cases
 
-On-demand nature of functions makes it a perfect candidate for event-driven execution.
+The on-demand nature of functions makes it a perfect candidate for event-driven execution.
 
 See the following table for common `functions` use cases:
 
@@ -16,13 +16,13 @@ See the following table for common `functions` use cases:
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data processing | Listen and respond to storage events when a file is created, changed, or removed. Process images, perform video transcoding, validate and transform data, and invoke any service on the internet from your functions. |
 | Webhooks        | With a simple HTTP call, respond to events originating from 3rd party systems like GitHub, Slack, Stripe.                                                                                                             |
-| APIs            | Compose applications from lightweight, quick and flexible.                                                                                                                                                            |
+| APIs            | Compose applications from lightweight, quick, and flexible.                                                                                                                                                           |
 
 ## Events and triggers
 
-There are events in the Spica. As an example there is an event when there is a change in the database or receive an HTTP request
+There are events in the Spica. As an example, there is an event when there is a change in the database or receive an HTTP request
 
-If you attach a trigger to your function, your function will be executed when the event raised.
+If you attach a trigger to your function, your function will be executed when the event is raised.
 
 
 ![Example Triggers](assets/images/docs/function/triggers.png)
@@ -38,7 +38,7 @@ Currently, the Functions supports following triggers:
 
 ### Event Data
 
-Event trigger will pass the data as parameters to the function when the event raised. The parameters will be different related to the type of event.
+Event trigger will pass the data as parameters to the function when the event is raised. The parameters will be differently related to the type of event.
 
 For example a function which has http trigger will look like this:
 
@@ -57,9 +57,9 @@ See [triggers](#triggers) section for parameter types.
 
 ### Http
 
-You can invoke your function with an HTTP request using the `POST`, `PUT`, `GET`, `DELETE`, `PATCH`, `HEAD` and `OPTIONS` HTTP methods along with a path like `/books` or `/books/:id`.
+You can invoke your function with an HTTP request using the `POST`, `PUT`, `GET`, `DELETE`, `PATCH`, `HEAD`, and `OPTIONS` HTTP methods along with a path like `/books` or `/books/:id`.
 
-To able to create a function with HTTP trigger, you need two information;
+To be able to create a function with HTTP trigger, you need two information;
 Path and Method, the method must be one of the specified HTTP methods above also you need a path like above.
 
 > HINT: When you save your function the endpoint will be provisioned automatically.
@@ -80,11 +80,17 @@ Currently, these methods are valid for use;
 - `HEAD`
 - `OPTIONS`
 
-Also, you can use `ANY` method that covers all methods above which means your function will be executed regardless of the HTTP method of request that bein received.
+Also, you can use the `ANY` method that covers all methods above which means your function will be executed regardless of the HTTP method of request that bein received.
+
+The following content types are supported by the HTTP trigger:
+
+- `application/x-www-form-urlencoded`
+- `multipart/form-data` 
+- `application/json`
 
 #### Path
 
-Spica will use the path will use when reserve a trigger URL for your function. When you save your function, the trigger URL will be attached to **`{API_URL}/fn-execute`** as suffix URL.
+Spica will use the path will use when reserving a trigger URL for your function. When you save your function, the trigger URL will be attached to **`{API_URL}/fn-execute`** as suffix URL.
 
 For example;
 
@@ -134,7 +140,7 @@ When you execute this function on **`/fn-execute/books/1`** URL, the response wi
 
 #### Request Body
 
-Usually, every request contains a payload (body) along with the request. It can be either `Raw` or `Text` payload. You can access to the payload of the request with `request.body` property.
+Usually, every request contains a payload (body) along with the request. It can be either `Raw` or `Text` payload. You can access the payload of the request with the `request.body` property.
 
 Example function;
 
@@ -147,7 +153,7 @@ export default function(request, response) {
 }
 ```
 
-If you send a `POST` request to this function with the following `JSON` payload; You will get the exact payload to response back because we used `request.body` as a response payload.
+If you send a `POST` request to this function with the following `JSON` payload; You will get the exact payload to respond because we used `request.body` as a response payload.
 
 ```json
 {
@@ -169,20 +175,20 @@ You need to parse the payload to be able to use it in a function.
 | Raw    | application/bson                  | Yes       | Supported by default.                                                                     |
 | Text   | application/x-www-form-urlencoded | No        | Will be supported soon. See issue [#28](https://github.com/spica-engine/spica/issues/28). |
 | Raw    | multipart/form-data               | No        | Will be supported soon. See issue [#28](https://github.com/spica-engine/spica/issues/28). |
-| Text   | application/xml                   | No        | You need to install an appropriate module to handle request payload.                      |
-| Text   | application/yaml                  | No        | You need to install an appropriate module to handle request payload.                      |
+| Text   | application/xml                   | No        | You need to install an appropriate module to handle the request payload.                  |
+| Text   | application/yaml                  | No        | You need to install an appropriate module to handle the request payload.                  |
 
 ### Database
 
-Database trigger, invokes your function when a specific database event raised in a collection of database. The database trigger can invoke your function with `INSERT`, `UPDATE`, `REPLACE`, `DELETE`, `DROP` events in a specific database collection. When the event raised, your function will be invoked with the changes in the collection.
+Database trigger invokes your function when a specific database event is raised in a collection of databases. The database trigger can invoke your function with `INSERT`, `UPDATE`, `REPLACE`, `DELETE`, `DROP` events in a specific database collection. When the event is raised, your function will be invoked with the changes in the collection.
 
-To be able to create a function that triggered by database event, you need two required and one optional information about the event
+To be able to create a function that is triggered by a database event, you need two required and one optional information about the event
 
 - **Collection:** Name of the collection where the set of documents stored
 - **Event Type:** Type of the event that happens in the collection. It can be `INSERT`, `UPDATE`, `REPLACE`, `DELETE`, `DROP`.
 - **Full Document:** Whether you want only full document or changes on passed data.
 
-> IMPORTANT: When a REPLACE/UPDATE event immediately followed by DELETE/DROP event, `fullDocument` property in the event will be `null`.
+> IMPORTANT: When a REPLACE/UPDATE event is immediately followed by a DELETE/DROP event, the `fullDocument` property in the event will be `null`.
 
 A basic database function looks like this:
 
@@ -193,7 +199,7 @@ export default function(changes) {
 }
 ```
 
-In the example code above, changes variable which passed to our function on the first parameter contains all the information about the changes.
+In the example code above, the `changes` variable which passed to our function on the first parameter contains all the information about the changes.
 
 Content of `changes` variable with the `INSERT` event and `full document` option enabled will look like this;
 
@@ -221,9 +227,9 @@ Content of `changes` variable with the `INSERT` event and `full document` option
 
 ### Schedule
 
-Schedule trigger invokes your function in a specific time and specific timezone. Fundamentally, schedule trigger is a [CRON](https://en.wikipedia.org/wiki/Cron) based trigger that invokes your function in a specific interval based on your CRON expression. Also, when your function invoked, the first parameter of your function will contain a function which basically stops the scheduler in case you don't want your function to be invoked at the next tick.
+Schedule trigger invokes your function in a specific time and specific timezone. Fundamentally, a schedule trigger is a [CRON](https://en.wikipedia.org/wiki/Cron) based trigger that invokes your function in a specific interval based on your CRON expression. Also, when your function is invoked, the first parameter of your function will contain a function that stops the scheduler in case you don't want your function to be invoked at the next tick.
 
-To create a scheduled function you need a CRON time expression and Time-zone because scheduler schedules your function regardless of the Time-zone of the host machine.
+To create a scheduled function you need a CRON time expression and Time-zone because the scheduler schedules your function regardless of the Time-zone of the host machine.
 
 For example, if you want to run your function at every minute, you need a cron time expression like this [\* \* \* \* \*](https://crontab.guru/#*_*_*_*_*).
 
@@ -233,7 +239,7 @@ export default function() {
 }
 ```
 
-In the example, we have stopped scheduler so our function won't be invoked next time when scheduler ticks.
+In the example, we have stopped the scheduler so our function won't be invoked next time when the scheduler ticks.
 
 #### Cron Time expression
 
@@ -278,7 +284,7 @@ Bucket events triggers after any of the following Bucket events happen:
 - `ALL`: Triggers after any of the below operations happens on Bucket Data,
 - `INSERT`: Triggers after a new data inserted to the specific Bucket,
 - `UPDATE`: Triggers after a bucket data updated,
-- `DELETE`: Triggers after a bucket data deleted.
+- `DELETE`: Triggers after a bucket data is deleted.
 
 The function takes the `change` object as a parameter.
 
@@ -311,17 +317,17 @@ export default function(changes) {
 }
 ```
 
-#### Difference Between Bucket After Events and Database Events
+#### Difference Between Bucket Events and Database Events
 
-Database events triggers when a change happens on Database layer, but Bucket After Events listens the API operations and triggers when the API processes the request.
+Database events trigger when a change happens on the Database layer, but Bucket Events listens to the API operations and triggers when the API processes the request.
 
-If you happen to change a data directly from the database (e.g. by using the `@spica-devkit/database`), only the Database events are triggers. But on either changes via Spica Client or Bucket APIs both **Bucket After Events** and **Database Events** triggers.
+If you happen to change data directly from the database (e.g. by using the `@spica-devkit/database`), only the Database events are triggers. But on either change via Spica Client or Bucket APIs, both **Bucket Events** and **Database Events** trigger.
 
-For example, let's assume we want to send a notification to a 3rd party API when a Spica User changes a data on Spica, but also we have a function which changes a bucket data internally by using `@spica-devkit/database`. It's correct to use **Bucket After Events** for the 3rd API communication instead of the Database Events in this case.
+For example, let's assume we want to send a notification to a 3rd party API when a Spica User changes data on Spica, but also we have a function that changes a bucket data internally by using `@spica-devkit/database`. It's correct to use **Bucket Events** for the 3rd API communication instead of the Database Events in this case.
 
 ### System
 
-System trigger includes system related event data and invokes a function whenever the chosen event happens. The system trigger is the best choice for using the dashboard module, configuring the instance, or setting up a starting state for your data. `READY` event will be triggered when a server restarts and ready to use. For the current version, the system trigger supports the `READY` event only.
+System trigger includes system-related event data and invokes a function whenever the chosen event happens. The system trigger is the best choice for using the dashboard module, configuring the instance, or setting up a starting state for your data. `READY` event will be triggered when a server restarts and is ready to use. For the current version, the system trigger supports the `READY` event only.
 
 ```typescript
 export default function() {
@@ -331,9 +337,9 @@ export default function() {
 
 ### Firehose
 
-You can invoke a function in real-time from your client application. It is a great tool for low latency operations since it keeps the connection always open _unlike the HTTP trigger_. Keep in mind that the firehose trigger does not interact with the bucket or database directly. However, that does not mean you can not perform database operations within your function. Instead, it listens to the real-time events so you can interact with the functions on the server directly from your client application. The firehose trigger can listen to a _user-defined event_, _connection_ and _disconnect_ event and let you act on behalf of those events.
+You can invoke a function in real-time from your client application. It is a great tool for low latency operations since it keeps the connection always open _unlike the HTTP trigger_. Keep in mind that the firehose trigger does not interact with the bucket or database directly. However, that does not mean you can not perform database operations within your function. Instead, it listens to real-time events so you can interact with the functions on the server directly from your client application. The firehose trigger can listen to a _user-defined event_, _connection_ and _disconnect_ event and let you act on behalf of those events.
 
-As an example, if you are making a game and run a real-time server-side logic that will communicate with the client application such as real-time point calculating, you can calculate score and deliver the result in real-time using the firehose trigger.
+As an example, if you are making a game and run a real-time server-side logic that will communicate with the client application such as real-time point calculating, you can calculate the score and deliver the result in real-time using the firehose trigger.
 
 ```typescript
 export default function({socket, pool} ,message) {
@@ -362,7 +368,7 @@ export default function({socket, pool} ,message) {
 
 ## Environment Variables
 
-You can define custom environment variables for your functions. If your team is a multi-disciplined team, you may need some roles to change just function variables. For this situtation, you can define environment variables which will be passed to function as a parameter. You can see an example of how environment variable works below:
+You can define custom environment variables for your functions. If your team is multi-disciplined, you may need some roles to change just function variables. For this situation, you can define environment variables that will be passed to function as a parameter. You can see an example of how the environment variable works below:
 
 ```typescript
 export default function() {
@@ -374,7 +380,7 @@ export default function() {
 
 This feature allows you to use 3rd party dependencies in your functions. Spica installs 3rd party libraries from NPM (node package manager). To use a 3rd party library, you just need to add it as a dependency to one of your functions by going to the particular function's edit page.
 
-> IMPORTANT: Each functions are decoupled from the Spica environment. So, if you will use the same library for different functions, you need to download the library for each function.
+> IMPORTANT: Each function is decoupled from the Spica environment. So, if you will use the same library for different functions, you need to download the library for each function.
 
 ## Debugging
 
@@ -382,18 +388,18 @@ An unhandled error will crash your function, when the error happens it will be l
 
 ### Logging
 
-A function code can have statements like `console.log`, `console.error`, when code calls a console function the output of log will be written to function's log.
+A function code can have statements like `console.log`, `console.error`, when the code calls a console function the output of the log will be written to the function's log.
 
 ![Logs](assets/images/docs/function/logs.png)
 
 ## Batching
 
-Before explaining batching, we explain how the cloud functions work. There are nodeJS workers behind the cloud functions in your Spica instance. Each function will be executed in different worker as long as batching is disabled. 
+Before explaining batching, we explain how the cloud functions work. There are nodeJS workers behind the cloud functions in your Spica instance. Each function will be executed in a different worker as long as batching is disabled. 
 
-Batching feature designed to handle peak cloud function usages in Spica server. You will see huge difference on response time from cloud functions when you enable batching because function will be assigned to same worker if it meets with the conditions. There are two conditions:
+Batching feature designed to handle peak cloud function usages in Spica server. You will see a huge difference in response time from cloud functions when you enable batching because the function will be assigned to the same worker if it meets the conditions. There are two conditions:
 
-1. batching deadline: indicates how many seconds worker will wait for the next execution. As an example, let's say batching deadline is 5 seconds. In the first execution, the function will be assigned to a worker and worker will wait for the next 5 seconds. If the second execution happens in next 5 seconds, the function will be assigned to the same worker. Otherwise, it will be assigned to another worker.
+1. batching deadline: indicates how many seconds the worker will wait for the next execution. As an example, let's say the batching deadline is 5 seconds. In the first execution, the function will be assigned to a worker and the worker will wait for the next 5 seconds. If the second execution happens in the next 5 seconds, the function will be assigned to the same worker. Otherwise, it will be assigned to another worker.
 
-2. batching count: indicates how many execution worker will handle. As an example, if you set batching count 10, the worker will handled next 10 execution. After that, worker will close it self.
+2. batching count: indicates how many executions will be handled by a worker. As an example, if you set batching count to 10, the worker will handle the next 10 execution. After that, the worker will close itself.
 
-Enabling batching will make worker alive for multiple execution. This means, executions will share the memory in worker. You should keep this in mind while developing your custom logic. 
+Enabling batching will make workers alive for multiple executions. This means executions will share the memory with the worker. You should keep this in mind while developing your custom logic. 

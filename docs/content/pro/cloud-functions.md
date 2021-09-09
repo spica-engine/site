@@ -4,9 +4,9 @@
 
 ## Increasing Response Time
 
-Users are not willing to wait more than 500 milliseconds in these days. Because of time limit, your custom APIs should respond as possible as fast. To increase your response time, you can use `batching` feature in cloud functions. To take the best performance from the cloud functions, you can follow the steps below;
+Users are not willing to wait more than 500 milliseconds these days. Because of the time limit, your custom APIs should respond as possible as fast. To increase your response time, you can use the `batching` feature in cloud functions. To take the best performance from the cloud functions, you can follow the steps below;
 
-1. Enable batching with the optimum `batching deadline` and `batching count` settings
+1. Enable batching with the optimum `batching deadline` setting
 2. Change every `@spica-devkit/bucket` operations to `@spica-devkit/database`
 3. Import common libraries before the function definitions. Example code below;
 
@@ -22,8 +22,8 @@ export default async function(){
 }
 ```
 
-4. Don't forget return from your functions, otherwise worker will wait until timeout limit.
-5. Complete time-consuming definitions before the function defitions. Example code below;
+4. Don't forget to return from your functions, otherwise, the worker will wait until the timeout limit.
+5. Complete time-consuming definitions before the function definitions. Example code below;
 
 ```typescript
 // This part will work once
@@ -48,25 +48,24 @@ export default async function(){
 // end: exported function
 ```
 
-After these steps, the response time will be reduced 90%. As an example, it will return 0.3 seconds if it returns in 1.5 seconds before.
+After these steps, the response time will be reduced by 90%. As an example, it will return 0.3 seconds if it returns 1.5 seconds before.
 
 ## Worker Counts and Batching
 
-There are worker count limitations in managed Spica packages. If you enable batching, you should set the `batching deadline` and `batching count` very carefully. 
+There are worker count limitations in managed Spica packages. If you enable batching, you should set the `batching deadline` very carefully. 
 
 * Let's say you have 5 batching workers and you have 5 workers limitation, the next function execution will wait until one of the workers completes the process and kills itself. 
 
-> To solve this problem, you can collect you every functions to 5 function files. Then you can enable batching for your all function files.
+> To solve this problem, you can collect every function into 5 function files. Then you can enable batching for your all function files.
 
 ## Typescript vs Javascript
 
-1. In javascript engine, you will NOT see any definition and type checks. Therefore, we suggest you to use Typescript engine if you are planing to develop complex functions.
+1. In the javascript engine, you will NOT see any definition and type checks. Therefore, we suggest you use the Typescript engine if you are planning to develop complex functions.
 
-2. Typescript engine will compile your function when you save the it. To decrease the compilation time, it will use incremental-compilation. In first save, it will take much longer time (like 4-5 seconds). But after the first save, it will save faster. We advice you to save empty function in Typescript engine first.
+2. Typescript engine will compile your function when you save it. To decrease the compilation time, it will use incremental compilation. In the first save, it will take a much longer time (like 4-5 seconds). But after the first save, it will save faster. We advise you to save an empty function in the Typescript engine first.
 
 ## Child Process
 
-You can reach to child process with `process` variable. Please see details with using `console.log(process)`. 
+You can reach to child process with the `process` variable. Please see details using `console.log(process)`. 
 
-You can install third-party libraries such as `gcloud` and `helm` with `System.Ready` trigger. So even if you restart your machine, a cloud function will install your 3rd-party library again.
-
+You can install third-party libraries such as `gcloud` and `helm` with the `System.Ready` trigger. So even if you restart your machine, a cloud function will install your 3rd-party library again.

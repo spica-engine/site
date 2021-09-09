@@ -2,6 +2,8 @@
 
 ## Table of contents
 
+
+## Installation
 Spica prodivdes CLI to manage your instances. To use CLI, simply enter the following command to your terminal:
 
 ```shell

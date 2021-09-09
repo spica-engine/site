@@ -6,7 +6,7 @@
 
 ## Initializing Bucket Module
 
-To initialize a bucket, simply use `initialize` function exported from `@spica-devkit/bucket` module. Specify the authorization (APIKEY or IDENTITY) and optional API url.
+To initialize a bucket, simply use the `initialize` function exported from the `@spica-devkit/bucket` module. Specify the authorization (APIKEY or IDENTITY) and optional API URL.
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -114,7 +114,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Get
+## Data Get
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -132,17 +132,14 @@ Note: Additionally, `Bucket.data.get()` function accepts a third optional `optio
   headers: {
     <HTTP HEADER KEY>: "<VALUE>"
   },
-  queryParams: {
-    <SPICA QUERY PARAMS>: "<VALUE>",
-    filter: "<Access Control Rules>"
-  }
+  queryParams: "<Query Parameters>"
 }
 ```
 
-For more information about `Access Control Rules`, please visit [this page](https://spicaengine.com/docs/guide/bucket#rules).
+For more information about `Query Parameters`, please visit [this page](https://spicaengine.com/docs/additionals/query-params).
 
 
-## Bucket Data Get with Parameters
+## Data Get with Parameters
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -165,14 +162,14 @@ Note: `Bucket.data.getAll()` function accepts a third optional `options` paramet
   },
   queryParams: {
     <SPICA QUERY PARAMS>: "<VALUE>",
-    filter: "<Access Control Rules>"
+    filter: "<Query Parameters>"
   }
 }
 ```
 
-For more information about Access Control Rules, please visit [this page](https://spicaengine.com/docs/guide/bucket#rules).
+For more information about Query Parameters, please visit [this page](https://spicaengine.com/docs/additionals/query-params).
 
-## Bucket Data Insert
+## Data Insert
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -189,7 +186,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Update
+## Data Update
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -209,7 +206,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Patch
+## Data Patch
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -226,7 +223,7 @@ export default function(req, res) {
 }
 ```
 
-## Bucket Data Remove
+## Data Remove
 
 ```typescript
 import * as Bucket from "@spica-devkit/bucket";
@@ -234,5 +231,114 @@ import * as Bucket from "@spica-devkit/bucket";
 export default function(req, res) {
   Bucket.initialize({identity: "<USER TOKEN>"});
   return Bucket.data.remove("<BUCKET ID>", "<BUCKET DATA ID>");
+}
+```
+
+## Realtime Data Get
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
+  return Bucket.data.realtime.get("<BUCKET ID>", "<BUCKET DATA ID>");
+}
+```
+
+## Realtime Data Get All
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
+  return Bucket.data.realtime.getAll("<BUCKET ID>");
+}
+```
+
+Note: Additionally, `Bucket.data.realtime.getAll()` function accepts a second optional `queryParams` parameter. The following is the structure of the `queryParams` parameter:
+
+```json
+{
+  <SPICA QUERY PARAMS>: "<VALUE>",
+  filter: "<Query Parameters>"
+}
+```
+
+## Realtime Data Insert
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
+  let connection = Bucket.data.realtime.getAll("<BUCKET ID>");
+  connection.subscribe();
+
+  let document = {
+    name: "123",
+    surname: "321"
+  };
+
+  connection.insert(document);
+}
+```
+
+## Realtime Data Replace
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
+  let connection = Bucket.data.realtime.getAll("<BUCKET ID>");
+  connection.subscribe();
+
+  let document = {
+    _id: <BUCKET DATA ID>,
+    name: "123",
+    surname: "321"
+  };
+
+  connection.replace(document);
+}
+```
+
+## Realtime Data Patch
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
+  let connection = Bucket.data.realtime.getAll("<BUCKET ID>");
+  connection.subscribe();
+
+  let document = {
+    _id: <BUCKET DATA ID>,
+    surname: "321"
+  };
+
+  connection.replace(document);
+}
+```
+
+## Realtime Data Remove
+
+```typescript
+import * as Bucket from "@spica-devkit/bucket";
+
+export default function(req, res) {
+  Bucket.initialize({identity: "<USER TOKEN>"});
+  let connection = Bucket.data.realtime.getAll("<BUCKET ID>");
+  connection.subscribe();
+
+  let document = {
+    _id: <BUCKET DATA ID>,
+    name: "123",
+    surname: "321"
+  };
+
+  connection.remove({document});
 }
 ```

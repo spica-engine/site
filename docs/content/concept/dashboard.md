@@ -4,7 +4,7 @@
 
 The dashboard module allows you to create a new custom dashboard including custom data charts or tables.
 
-To list all of your Dashboards, simply open the **Primary** section of the side panel and click to the **list** icon.
+To list all of your Dashboards, simply open the **Primary** section of the side panel and click on the **list** icon.
 
 ## Creating a new custom Dashboard
 
@@ -177,6 +177,60 @@ Please note, each component accepts takes a different kind of JSON structure.
   ]
 }
 ```
+### Example Card Response
+
+```json
+{
+  "title": "Card Title",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis libero quis ligula vulputate efficitur.",
+  "inputs": [
+    {
+      "key": "input1",
+      "type": "string",
+      "value": "",
+      "title": "First Input"
+    },
+    {
+      "key": "input2",
+      "type": "string",
+      "value": "",
+      "title": "Second Input"
+    }
+  ],
+  "button": {
+    "color": "primary",
+    "target": "http://",
+    "method": "get",
+    "title": "Send Request"
+  }
+}
+
+```
+
+Inputs array supports all [BucketProperty](https://spicaengine.com/docs/additionals/bucket-module-types#bucketproperty) type fields excluding the `relation` type. 
+
+Also, you can add file input to the card like the following:
+
+```json
+...
+"inputs": [
+  ...
+  {
+    "key": "file",
+    "type": "file",
+    "value": null,
+    "title": "Select a file",
+  }
+  ...
+],
+"button": {
+    "target": "http://",
+    "method": "post",
+    "title": "Submit",
+    "enctype": "multipart/form-data", //or "application/x-www-form-urlencoded"
+},
+...
+```
 
 ### Example Table Data Response
 
@@ -200,4 +254,4 @@ Please note, each component accepts takes a different kind of JSON structure.
 }
 ```
 
-To see your custom dashboards, please navigate to **Primary** section on the menu.
+To see your custom dashboards, please navigate to the **Primary** section on the menu.
