@@ -12,7 +12,6 @@ import { SupportPolicyComponent } from './pages/support-policy/support-policy.co
 import { LimitPolicyComponent } from './pages/limit-policy/limit-policy.component';
 import { FairusagePolicyComponent } from './pages/fairusage-policy/fairusage-policy.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
-import { ComparePlansComponent } from './pages/compare-plans/compare-plans.component';
 
 const routes: Routes = [
   {
@@ -49,10 +48,6 @@ const routes: Routes = [
   {
     path: 'features',
     component: FeaturesComponent,
-  },
-  {
-    path: 'compare-all-plans',
-    component: ComparePlansComponent,
   },
   {
     path: 'pricing',

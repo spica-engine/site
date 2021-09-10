@@ -1,4 +1,6 @@
 import {Component, OnInit} from "@angular/core";
+import { take } from "rxjs/operators";
+import { PlansService } from "src/app/services/plans.service";
 import {fly, flyOne} from "../animations";
 @Component({
   selector: "app-enterprise",
@@ -7,7 +9,17 @@ import {fly, flyOne} from "../animations";
   animations: [fly("fly"), flyOne("flyOne")]
 })
 export class EnterpriseComponent implements OnInit {
-  constructor() {}
+  comparePlans: any;
+  constructor(private planService: PlansService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.planService
+    .getPlans()
+    .pipe(take(1))
+    .subscribe((plans) => {
+      console.log(plans);
+      this.comparePlans = plans;
+      console.log(this.comparePlans.shared);
+    });
+  }
 }

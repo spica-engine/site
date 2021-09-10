@@ -1,0 +1,35 @@
+<main>
+    <div class="container">
+        <ng-container *ngIf="comparePlans">
+            <div class="difference__table">
+                <div class="difference__row">
+                    <div class="difference__cell difference__cell--feature"></div>
+                    <div class="difference__cell difference__cell--head" *ngFor="let plan of comparePlans.data.shared">
+                        <h2>{{ plan.name }}</h2>
+                        <h3>{{ plan.price }}</h3>
+                        <p>{{ plan.description }}</p>
+                        <a href="https://dashboard.spicaengine.com/" *ngIf="!plan.mail" targe="_blank"><button mat-flat-button color="primary" >{{plan.buttonLable}}</button></a>
+                        <a href="mailto:contact@spicaengine.com" *ngIf="plan.mail"><button mat-flat-button color="primary" >{{plan.buttonLable}}</button></a>
+                    </div>
+                </div>
+                <ng-container *ngFor="let section of comparePlans.sections">
+                    <div class="difference__section">
+                        {{ section.text }}
+                    </div>
+                    <div class="difference__row" *ngFor="let row of section.rows">
+                        <div class="difference__cell difference__cell--feature">
+                            {{ row.text }}
+                        </div>
+                        <div class="difference__cell" *ngFor="let data of comparePlans.data.shared">
+                            <span class="difference__tick" *ngIf="row.type == 'bool' && (!data.features[row.name] || (data.features[row.name] && data.features[row.name] != 'false'))"></span>
+                            <div class="difference__nontick" *ngIf="row.type == 'bool' && (data.features[row.name] && data.features[row.name] == 'false')"> </div>
+                            <strong *ngIf="row.type == 'text'">{{
+                                data.features[row.name]
+                                }}</strong>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</main>
