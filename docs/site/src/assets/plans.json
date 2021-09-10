@@ -1,0 +1,469 @@
+{
+  "sections": [
+    {
+      "text": "Usage Limits",
+      "rows": [
+        {
+          "name": "request-month",
+          "type": "text",
+          "text": "Number of Request Per Month"
+        },
+        {
+          "name": "database",
+          "type": "text",
+          "text": "Database Size"
+        },
+        {
+          "name": "storage",
+          "type": "text",
+          "text": "Storage (CDN)"
+        },
+        {
+          "name": "entry",
+          "type": "text",
+          "text": "Entries"
+        },
+        {
+          "name": "user",
+          "type": "text",
+          "text": "Users (Identities)"
+        },
+        {
+          "name": "function",
+          "type": "text",
+          "text": "Cloud Function Files (unlimited functions in each)"
+        },
+        {
+          "name": "performance",
+          "type": "text",
+          "text": "Response Performance"
+        },
+        {
+          "name": "harware",
+          "type": "text",
+          "text": "Hardware"
+        }
+      ]
+    },
+    {
+      "text": "Database (Bucket API)",
+      "rows": [
+        {
+          "name": "rest",
+          "type": "bool",
+          "text": "Auto REST API Generation"
+        },
+        {
+          "name": "realtime",
+          "type": "bool",
+          "text": "Realtime Functionality"
+        },
+        {
+          "name": "relation",
+          "type": "bool",
+          "text": "Relational Queries"
+        },
+        {
+          "name": "nested-chain",
+          "type": "bool",
+          "text": "Nested Relational Queries"
+        },
+        {
+          "name": "acl",
+          "type": "bool",
+          "text": "Access Control Levels (ACLs)"
+        },
+        {
+          "name": "graphql",
+          "type": "bool",
+          "text": "GraphQL API"
+        },
+        {
+          "name": "relation",
+          "type": "bool",
+          "text": "Relational Queries"
+        },
+        {
+          "name": "field-behaviours",
+          "type": "bool",
+          "text": "Field Behaviours"
+        },
+        {
+          "name": "history",
+          "type": "bool",
+          "text": "Data History"
+        },
+        {
+          "name": "localization",
+          "type": "bool",
+          "text": "Localization"
+        },
+        {
+          "name": "scheduled",
+          "type": "bool",
+          "text": "Scheduled Data Publishing"
+        },
+        {
+          "name": "view-customization",
+          "type": "bool",
+          "text": "View Customization"
+        },
+        {
+          "name": "serverside-cache",
+          "type": "bool",
+          "text": "Request Caching"
+        }
+      ]
+    },
+    {
+      "text": "Cloud Functions",
+      "rows": [
+        {
+          "name": "github",
+          "type": "bool",
+          "text": "Github Connection"
+        },
+        {
+          "name": "function-logs",
+          "type": "bool",
+          "text": "Function Logs"
+        },
+        {
+          "name": "realtime-logs",
+          "type": "bool",
+          "text": "Realtime Logs"
+        },
+        {
+          "name": "libraries",
+          "type": "bool",
+          "text": "NPM Libraries"
+        },
+        {
+          "name": "webhooks",
+          "type": "bool",
+          "text": "Web Hooks"
+        },
+        {
+          "name": "env-variables",
+          "type": "bool",
+          "text": "Environment Variables"
+        },
+        {
+          "name": "cron-jobs",
+          "type": "bool",
+          "text": "Cron Jobs"
+        },
+        {
+          "name": "database-triggers",
+          "type": "bool",
+          "text": "Database Triggers"
+        },
+        {
+          "name": "http-triggers",
+          "type": "bool",
+          "text": "Custom HTTP Triggers"
+        },
+        {
+          "name": "system-triggers",
+          "type": "bool",
+          "text": "Built-in System Triggers"
+        },
+        {
+          "name": "bucket-triggers",
+          "type": "bool",
+          "text": "Bucket API Triggers"
+        },
+        {
+          "name": "realtime-triggers",
+          "type": "bool",
+          "text": "Cloud Function Websocket Connection"
+        },
+        {
+          "name": "realtime-triggers",
+          "type": "bool",
+          "text": "Websocket Connection"
+        },
+        {
+          "name": "auto-scaling",
+          "type": "bool",
+          "text": "Auto Scaling"
+        }
+      ]
+    },
+    {
+      "text": "Storage (CDN)",
+      "rows": [
+        {
+          "name": "image-editing",
+          "type": "bool",
+          "text": "Image Editing"
+        },
+        {
+          "name": "all-files",
+          "type": "bool",
+          "text": "All File Types"
+        }
+      ]
+    },
+    {
+      "text": "Auth",
+      "rows": [
+        {
+          "name": "builtin-identity",
+          "type": "bool",
+          "text": "Application Users"
+        },
+        {
+          "name": "saml",
+          "type": "bool",
+          "text": "Custom SAML Strategies"
+        },
+        {
+          "name": "oauth",
+          "type": "bool",
+          "text": "Custom oAuth Strategies"
+        },
+        {
+          "name": "no-branding",
+          "type": "bool",
+          "text": "No Branded Mails"
+        },
+        {
+          "name": "custom-attributes",
+          "type": "bool",
+          "text": "Custom Identity Attributes"
+        },
+        {
+          "name": "policies",
+          "type": "bool",
+          "text": "Resource Based Policies"
+        },
+        {
+          "name": "custom-policies",
+          "type": "bool",
+          "text": "Custom Policies"
+        },
+        {
+          "name": "api-keys",
+          "type": "bool",
+          "text": "API Keys"
+        }
+      ]
+    },
+    {
+      "text": "Dashboard",
+      "rows": [
+        {
+          "name": "custom-dashboards",
+          "type": "bool",
+          "text": "Custom Dashboards"
+        },
+        {
+          "name": "graphs",
+          "type": "bool",
+          "text": "All Chart Graphs"
+        },
+        {
+          "name": "external-data-provider",
+          "type": "bool",
+          "text": "External Data Provider"
+        }
+      ]
+    },
+    {
+      "text": "Cloud Service",
+      "rows": [
+        {
+          "name": "ssl",
+          "type": "bool",
+          "text": "SSL/HTTPS"
+        },
+        {
+          "name": "static-ip",
+          "type": "bool",
+          "text": "Static IP"
+        },
+        {
+          "name": "assetstore",
+          "type": "bool",
+          "text": "Assetstore Access"
+        }
+      ]
+    },
+    {
+      "text": "Support",
+      "rows": [
+        {
+          "name": "community-support",
+          "type": "bool",
+          "text": "Community Support"
+        },
+        {
+          "name": "email-support",
+          "type": "bool",
+          "text": "Email Support"
+        },
+        {
+          "name": "dedicated-support",
+          "type": "bool",
+          "text": "Dedicated Support"
+        },
+        {
+          "name": "private-chat",
+          "type": "bool",
+          "text": "Private chat"
+        },
+        {
+          "name": "onpremise-support",
+          "type": "bool",
+          "text": "Onpremise Support"
+        },
+        {
+          "name": "auto-checkups",
+          "type": "bool",
+          "text": "Monthly Checkups"
+        },
+        {
+          "name": "customer-success",
+          "type": "bool",
+          "text": "Customer Success Service"
+        }
+      ]
+    }
+  ],
+  "data": {
+    "shared": [
+      {
+        "name": "Free",
+        "description": "For development purposes only",
+        "price": "Free",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "Unlimited",
+          "database": "1GB",
+          "storage": "10GB",
+          "entry": "100K",
+          "user": "10K",
+          "function": "5",
+          "history": "false",
+          "graphql": "false",
+          "realtime-logs": "false",
+          "static-ip": "false",
+          "email-support": "false",
+          "dedicated-support": "false",
+          "private-chat": "false",
+          "onpremise-support": "false",
+          "customer-success": "false",
+          "auto-checkups": "false",
+          "performance": "Up to 10 req/s",
+          "harware": "Shared"
+        }
+      },
+      {
+        "name": "Starter",
+        "description": "For the small projects and websites",
+        "price": "19USD / Month",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "Unlimited",
+          "database": "1GB",
+          "storage": "10GB",
+          "entry": "100K",
+          "user": "10K",
+          "function": "5",
+          "history": "false",
+          "graphql": "false",
+          "realtime-logs": "false",
+          "static-ip": "false",
+          "dedicated-support": "false",
+          "private-chat": "false",
+          "onpremise-support": "false",
+          "customer-success": "false",
+          "auto-checkups": "false",
+          "performance": "Up to 30 req/s",
+          "harware": "Shared"
+        }
+      },
+      {
+        "name": "Professional",
+        "description": "For the early-startups, social network projects .etc",
+        "price": "49USD / Month",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "Unlimited",
+          "database": "2GB",
+          "storage": "50GB",
+          "entry": "500K",
+          "user": "100K",
+          "function": "15",
+          "realtime-logs": "false",
+          "static-ip": "false",
+          "dedicated-support": "false",
+          "private-chat": "false",
+          "onpremise-support": "false",
+          "customer-success": "false",
+          "auto-checkups": "false",
+          "performance": "Up to 50 req/s",
+          "harware": "Shared"
+        }
+      },
+      {
+        "name": "Business",
+        "description": "For the high-volume projects and games",
+        "price": "149USD / Month",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "Unlimited",
+          "database": "10GB",
+          "storage": "150GB",
+          "entry": "5M",
+          "user": "1M",
+          "function": "50",
+          "static-ip": "false",
+          "private-chat": "false",
+          "onpremise-support": "false",
+          "customer-success": "false",
+          "auto-checkups": "false",
+          "performance": "Up to 100 req/s",
+          "harware": "Shared"
+        }
+      },
+      {
+        "name": "Enterprise",
+        "description": "For millions of requests in a day",
+        "price": "649USD / Month",
+        "buttonLable": "Sign Up",
+        "features": {
+          "request-month": "Unlimited",
+          "database": "90GB",
+          "storage": "500GB",
+          "entry": "25M",
+          "user": "10M",
+          "function": "100",
+          "onpremise-support": "false",
+          "performance": "Above 100 req/s",
+          "harware": "Shared"
+        }
+      },
+      {
+        "name": "Custom",
+        "description": "Custom dedicated servers and support services",
+        "price": " - ",
+        "buttonLable": "Contact Us",
+        "mail": true,
+        "features": {
+          "request-month": "Unlimited",
+          "database": "Unlimited",
+          "storage": "Unlimited",
+          "entry": "Unlimited",
+          "user": "Unlimited",
+          "function": "Unlimited",
+          "performance": "Hardware Limitations",
+          "harware": "Dedicated or On-Premise"
+        }
+      }
+    ],
+    "dedicated": [
+    ]
+  }
+}

@@ -6,7 +6,7 @@ docs(
     name = "guide",
     # buildifier: leave-alone
     srcs = [
-        "index.md",
+        # "index.md",
         "contributing.md",
         "open-source-build.md",
         "user-register-login.md",

@@ -2,9 +2,9 @@
 
 ## Table of contents
 
-## Increasing Response Time
+## Reducing Response Time
 
-Users are not willing to wait more than 500 milliseconds these days. Because of the time limit, your custom APIs should respond as possible as fast. To increase your response time, you can use the `batching` feature in cloud functions. To take the best performance from the cloud functions, you can follow the steps below;
+Users are not willing to wait more than 500 milliseconds these days. Because of the time limit, your custom APIs should respond as possible as fast. To reduce your response time, you can use the `batching` feature in cloud functions. To take the best performance from the cloud functions, you can follow the steps below;
 
 1. Enable batching with the optimum `batching deadline` setting
 2. Change every `@spica-devkit/bucket` operations to `@spica-devkit/database`
