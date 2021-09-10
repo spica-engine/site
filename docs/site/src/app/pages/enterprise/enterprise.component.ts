@@ -17,9 +17,7 @@ export class EnterpriseComponent implements OnInit {
     .getPlans()
     .pipe(take(1))
     .subscribe((plans) => {
-      console.log(plans);
       this.comparePlans = plans;
-      console.log(this.comparePlans.shared);
     });
   }
 }
