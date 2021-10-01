@@ -394,15 +394,3 @@ An unhandled error will crash your function, when the error happens it will be l
 A function code can have statements like `console.log`, `console.error`, when the code calls a console function the output of the log will be written to the function's log.
 
 ![Logs](assets/images/docs/function/logs.png)
-
-## Batching
-
-Before explaining batching, we explain how the cloud functions work. There are nodeJS workers behind the cloud functions in your Spica instance. Each function will be executed in a different worker as long as batching is disabled.
-
-Batching feature designed to handle peak cloud function usages in Spica server. You will see a huge difference in response time from cloud functions when you enable batching because the function will be assigned to the same worker if it meets the conditions. There are two conditions:
-
-1. batching deadline: indicates how many seconds the worker will wait for the next execution. As an example, let's say the batching deadline is 5 seconds. In the first execution, the function will be assigned to a worker and the worker will wait for the next 5 seconds. If the second execution happens in the next 5 seconds, the function will be assigned to the same worker. Otherwise, it will be assigned to another worker.
-
-2. batching count: indicates how many executions will be handled by a worker. As an example, if you set batching count to 10, the worker will handle the next 10 execution. After that, the worker will close itself.
-
-Enabling batching will make workers alive for multiple executions. This means executions will share the memory with the worker. You should keep this in mind while developing your custom logic.
