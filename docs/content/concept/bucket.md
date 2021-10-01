@@ -132,3 +132,34 @@ Navigate to one of the Bucket's entries, look for the **History** button on the 
 ## Real-time
 
 This feature helps you to connect bucket collections and send `POST`, `PUT`, `GET`, `DELETE`, `PATCH` requests to the bucket data and their changes in real-time to handle constantly changing workloads. Unlike API calls, retrieved data will always be actual. You can skip some data rows or limit the amount of data you'll get. Sorting and filtering are also supported. A real-time bucket system is mostly useful for chat applications, reservation systems, and accounting.
+
+## Generating ORM File
+
+Spica CLI provides generating objects file commands to prepare your client project easier. To generate an ORM file in your local client project, you can use the commands below;
+
+
+```bash
+$ spica bucket orm --url <YOUR_BACKEND_API_URL> --apikey <YOUR_APIKEY> --path <FOLDER_PATH_TO_GENERATE>
+```
+
+> Remember: You need to install Spica CLI with `npm install @spica/cli` before running any other command
+
+This command will generate a `bucket.ts` file in the path you indicated. The path parameter is optional. If you don't give the path parameter, it will generate the file where you run the command. After you generate the ORM file you can use your buckets like in the example below;
+
+```typescript
+// Let's say you have a user bucket in your project
+import {user,User,initialize} from "./bucket.ts";
+
+// You can use the initialize function with an API key as well
+// Bucket.initialize({apikey: <APIKEY>}) 
+constructor(){
+  initialize({identity: <JWT_TOKEN>});
+}
+
+async function getUsers(){
+  const allUsers: User[] = await user.getAll(...) // Now you can use every bucket library functions
+  return allUsers;
+}
+```
+
+For more information about the bucket libraries, please visit [this page](https://spicaengine.com/docs/libraries/bucket-module).
