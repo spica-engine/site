@@ -32,8 +32,7 @@ spec:
       options:
         position: left
         visible: true
-  primary:
-    - title
+  primary: title
 ```
 
 For more information about `spec` properties, see [Bucket Module Types]().
